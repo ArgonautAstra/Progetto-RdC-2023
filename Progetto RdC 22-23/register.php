@@ -27,6 +27,10 @@
 		margin: 0;
 	}
 	
+	img:hover {
+		cursor: pointer;
+	}
+	
 	.login-form {
 		background-color: #323232;
 		border-radius: 5px;
@@ -53,6 +57,7 @@
 		height: 24px;
 		margin-top: 3px;
 		margin-bottom: 10px;
+		border: none;
 	}
 	
 </style>
@@ -67,7 +72,7 @@
 		<div class="container" style="width: 25%; position: absolute; top: 10%">
 			<div class="row" align="center">
 				<div>
-					<img src="img/UNIHub2.png" alt="logo" width="35%">
+					<img src="img/UNIHub2.png" alt="logo" width="35%" onClick="window.location = 'index.php'">
 				</div>
 				<h5>Sign up to UNIHub</h5>
 			</div>
