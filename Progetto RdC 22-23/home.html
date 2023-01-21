@@ -21,6 +21,9 @@
 <style>
 	
 	#navbar {
+		padding: 0;
+		position: sticky;
+		top: 0;
 		background-color: #323232;
 		box-shadow: 2px 0 5px 0 #1F1F1F;
 	}
@@ -37,6 +40,9 @@
 	}
 	
 	#project {
+		position: fixed;
+		height: 100%;
+		z-index: -1;
 		background-color: #2C2C2C;
 		border-right: 0.5px solid #323232;
 		padding: 2%;
@@ -104,8 +110,6 @@
 	}
 	
 	.activity {
-		padding: 3%; 
-		margin-top: 10px;
 		border: 1px dashed white;
 		border-radius: 10px;
 	}
@@ -114,6 +118,12 @@
 		height: 24px;
 		border-radius: 100px;
 		border: none;
+	}
+	
+	@media screen and (max-width: 600px) {
+		#project {
+			position: inherit;
+		}
 	}
 	
 </style>
@@ -131,25 +141,26 @@
 		  		<input class="form-control" type="search" placeholder="Search" aria-label="Search">
 				<a class="btn" href="">Push</a>
 				<a class="btn" href="">Pull</a>
-				<a class="btn" href="">Explore</a>
+				<a class="btn" href="">Ohio</a>
 				<a class="btn" href="">Explore</a>
 			</div>
 			
 			<div class="d-flex justify-content-right align-items-center">
 				<a class="btn" href=""><img src="img/svg/bell.svg" alt="notify"></a>
-				<a class="btn" href=""><img src="img/svg/gear.svg" alt="gear"></a>
-				<img class="navbar-brand" src="img/UNIHub2.png" alt="icon" height="50px">
+				
+					<button class="btn btn-sm dropdown-toggle" type="button" id="drop_settings" data-bs-toggle="dropdown" aria-expanded="false">
+						<img class="navbar-brand" src="img/UNIHub2.png" alt="icon" height="40px">
+				  	</button>
+				  	<ul class="dropdown-menu" aria-labelledby="drop_settings">
+						<li><a class="dropdown-item" href="#">Action</a></li>
+						<li><a class="dropdown-item" href="#">Another action</a></li>
+						<li><a class="dropdown-item" href="#">Something else here</a></li>
+				  	</ul>
 			</div>
-		  </div>
+		</div>
 	</div>
 	
-	<!-- main -->
-	
-	<div id="main" class="row">
-	
-		<!-- project list --> 
-
-		<div id="project" class="col-sm-3">
+	<div id="project" class="col-sm-3">
 			<div class="d-flex justify-content-between align-items-center">
 				<p style="margin: 0"><b>Top projects</b></p>
 				<a class="btn btn-success" href="">New</a>
@@ -173,12 +184,22 @@
 		  		<p style="font-size: 12px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 			</div>
 		</div>
+	
+	<!-- main -->
+	
+	<div id="main" class="row">
+	
+		<!-- project list --> 
+
+		<div  class="col-sm-3">
+		</div>
 
 		<!-- dashboard --> 
 		
 		<div id="dashboard" class="col-sm-6">
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>
+			Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>
+			Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>Ohio<br>
 		</div>
 	
 		<!-- info --> 
@@ -191,7 +212,7 @@
 	
 	<!-- footer -->
 	
-	<div id="footer" class="row" align="center">
+	<div id="footer" class="row " align="center">
 		<p><b>Powered by</b>&emsp;Andrea Spinelli, Marco Valenti, Raffaele Terracino</p>
 	</div>
 	
