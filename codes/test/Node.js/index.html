@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>Files</title>
+</head>
+<body>
+	<!-- Upload section-->
+	<div>
+		<h3>Upload Section</h3> <br>
+		<!-- action to the /upload route-->
+		<form action="/uploads"
+			method="post"
+			enctype="multipart/form-data">
+			File to be uploaded: <input type="file"
+										name="uploadFile"
+										id="">
+			<br><br>
+			<button type="submit">Upload</button>
+		</form>
+		<br>
+	</div>
+
+	<!-- Download Section-->
+	<div>
+		<h3>Download Section</h3> <br>
+		<!-- action to the /download route-->
+		<form action="/downloads" method="get">
+			<button type="submit">Download</button>
+		</form>
+	</div>
+	
+</body>
+</html>
