@@ -8,22 +8,22 @@
 
 
 
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js' integrity='sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB' crossorigin='anonymous'></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
 
 
 </head>
 
 <!-- CSS -->
 
+<!-- CSS -->
+
 <style>
 
     #navbar {
-        background-color: #323232;
-        box-shadow: 2px 0 5px 0 #1F1F1F;
+        padding: 0;
     }
 
     #body {
@@ -34,81 +34,64 @@
     }
 
     #main {
-
-    }
-
-    #project {
-        background-color: #2C2C2C;
-        border-right: 0.5px solid #323232;
-        padding: 2%;
-    }
-
-    #my_proj {
-        height: 24px;
-        border-radius: 100px;
-        border: 1px solid #323232;
-        background-color: #1F1F1F;
-        color: white;
-    }
-
-    #dashboard {
-
-    }
-
-    #info {
-        background-color: #2C2C2C;
+        padding: 20px;
     }
 
     #footer {
         background-color: white;
         color: #1F1F1F;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
     }
+
+    #wallpaper {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+
+    p { margin: 3px; }
 
     img:hover {
         cursor: pointer;
     }
 
-    a img {
-        filter: invert(100%);
+    .btn { color: white; }
+
+    .in {
+        color: #1F1F1F;
+        background-color: white;
+        border-radius: 25px;
+        font-size: 14px;
+        padding: 2px;
+        padding-left: 7px;
+        padding-right: 7px;
     }
 
-    a img:hover {
-        filter: invert(50%);
+    .up {
+        color: white;
+        background-color: #1F1F1F;
+        margin-left: 5px;
+        border-radius: 25px;
+        font-size: 14px;
+        padding: 2px;
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+    .in:hover {
+        color: white;
+        background-color: #1F1F1F;
         transition: 0.5s;
     }
 
-    .btn {
-        color: white;
-        font-size: 14px;
-        font-weight: 500;
-    }
-
-    .btn:hover {
-        color:  #A0A0A0;
+    .up:hover {
+        color: #1F1F1F;
+        background-color: white;
         transition: 0.5s;
-    }
-
-    .proj {
-        color: white;
-        font-size: 14px;
-        text-decoration: none;
-    }
-
-    .proj p{
-        margin-bottom: 5px;
-    }
-
-    .proj:hover {
-        color:  #A0A0A0;
-        text-decoration: underline;
-        transition: 0.5s
-    }
-
-    .activity {
-        padding: 3%;
-        margin-top: 10px;
-        border: 1px dashed white;
-        border-radius: 10px;
     }
 
     .form-control {
@@ -123,23 +106,22 @@
 
 <body id="body">
 
+<!-- wallpaper -->
+
+<img id="wallpaper" src="img/wallpaper.png" alt="wallpaper">
+
 <!-- navbar -->
 
 <div id="navbar" class="navbar justify-content-center">
     <div class="container-fluid">
         <div class="d-flex justify-content-left align-items-center">
-            <img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = 'index.html'">
+            <img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px onClick="window.location = 'index'>
             <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-            <a class="btn" href="">Push</a>
-            <a class="btn" href="">Pull</a>
-            <a class="btn" href="">Explore</a>
-            <a class="btn" href="">Explore</a>
         </div>
 
         <div class="d-flex justify-content-right align-items-center">
-            <a class="btn" href=""><img src="img/svg/bell.svg" alt="notify"></a>
-            <a class="btn" href=""><img src="img/svg/gear.svg" alt="gear"></a>
-            <img class="navbar-brand" src="img/UNIHub2.png" alt="icon" height="50px">
+            <a class="btn in" href="sign_in">Sign in</a>
+            <a class="btn up" href="sign_up">Sign up</a>
         </div>
     </div>
 </div>
@@ -148,44 +130,12 @@
 
 <div id="main" class="row">
 
-    <!-- project list -->
+    <!-- body -->
 
-    <div id="project" class="col-sm-3">
-        <div class="d-flex justify-content-between align-items-center">
-            <p style="margin: 0"><b>Top projects</b></p>
-            <a class="btn btn-success" href="">New</a>
-        </div>
-
-        <div class="d-flex justify-content-between align-items-center" style="margin-top: 10px">
-            <input id="my_proj" class="form-control" type="search" placeholder="Search" aria-label="Search">
-        </div>
-
-        <br>
-        <a class="proj" href=""><p>Example/of/project/path#1</p></a>
-        <a class="proj" href=""><p>Example/of/project/path#2</p></a>
-        <a class="proj" href=""><p>Example/of/project/path#3</p></a>
-        <br>
-
-        <div class="d-flex justify-content-between align-items-center">
-            <p style="margin: 0"><b>Recent activity</b></p>
-        </div>
-
-        <div class="d-flex justify-content-between align-items-center activity">
-            <p style="font-size: 12px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-    </div>
-
-    <!-- dashboard -->
-
-    <div id="dashboard" class="col-sm-6">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    </div>
-
-    <!-- info -->
-
-    <div id="info" class="col-sm-3">
-
+    <div>
+        <h2>Benvenuto in UniHub</h2>
+        <h2>il sistema di file sharing gratuito</h2>
+        <h5>Sei nuovo? Registrati, o dai un'occhiata ai progetti pubblici</h5>
     </div>
 
 </div>
