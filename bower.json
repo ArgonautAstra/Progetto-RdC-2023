@@ -1,0 +1,28 @@
+{
+  "name": "Progetto di Reti",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Marco Valenti",
+    "Andrea Spinelli",
+    "Raffaele Terracino"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "docker",
+    "mysql",
+    "nodejs"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "jquery": "^3.6.3"
+  }
+}
