@@ -8,6 +8,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
       MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_USER: pippo
+      MYSQL_PASSWORD: pippo
     ports:
       - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
     volumes: 
@@ -24,7 +26,7 @@ services:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     volumes: 
       - ./app:/app
-      - app/node_modules
+      - /app/node_modules
     depends_on:
       - mysqldb
     stdin_open: true

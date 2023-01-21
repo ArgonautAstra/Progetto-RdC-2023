@@ -1,23 +1,19 @@
-require('dotenv').config();
-const express = require('express');
+const express = require('express')
 
-// Databases
-require('./db/sequelize');
+const database = require("./db/Db")
 
 const app = express();
 
-const { user: UserModel } = require('./db/sequelize');
+//const { user: UserModel } = require('./db/sequelize');
+
+const data = database.getDB()
+const data2 = database.getDB()
 
 app.route('/').get(async (req, res) => {
-	try {
-		const users = await UserModel.findAll({ logging: console.log });
-		res.send(users);
-	} catch (e) {
-		throw e;
-	}
+    res.send(data === data2)
 });
 
-const port = process.env.NODEJS_LOCAL_PORT || 3000;
+const port = 3000;
 app.listen(port, () => {
 	console.log(`Worker: process ${process.pid} is up on port ${port}`);
 });
