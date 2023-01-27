@@ -7,7 +7,7 @@ const loginRouter = express.Router()
 loginRouter.get("/sign_in",controller.renderSignIn)
 
 loginRouter.post("/sign_in", (req,res)=>{
-    console.log(res.body)   
+    console.log(req.body)   
     res.sendStatus(200)
 })
 
