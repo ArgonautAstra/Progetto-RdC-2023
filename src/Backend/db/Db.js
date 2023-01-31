@@ -1,7 +1,6 @@
 const { Sequelize } = require('sequelize');
 const config = require("./config.json")
 
-
 class database {
     static db
 
@@ -13,18 +12,17 @@ class database {
 
     static getDB(){
         if (!this.db){
-            this.db = new Sequelize({
-                dialect: "mysql",
+            this.db = new Sequelize(config.db, config.user, config.password, {
                 host: config.host,
-                username: config.user,
-                password: config.password
+                dialect: "mysql"
             });
         }
+
         return this.db
 
     }
 
-    async connect(){
+    async connect() {
         try {
             await this.db.authenticate();
             console.log('Connection has been established successfully.');
@@ -33,14 +31,9 @@ class database {
         }
     }
 
-
-
-
     disconnect(){
         this.db.close();
     }
-
-
 }
 
 module.exports = database

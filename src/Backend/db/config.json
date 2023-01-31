@@ -1,5 +1,6 @@
 {
-  "host":"172.23.0.2",
+  "host":"151.63.251.58",
   "user": "pippo",
-  "password": "pippo"
+  "password": "pippo",
+  "db": "unihub"
 }
