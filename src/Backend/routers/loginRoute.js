@@ -32,14 +32,13 @@ loginRouter.post("/sign_in", (req,res)=>{
                     res.send("home.ejs!");
                 }
             })
-            .catch(err => console.log(err)).finally(() => db.close())
+            .catch(err => console.log(err))
     }
 
     selectRecord();
 })
 
 /* sign up page */
-
 loginRouter.get("/sign_up",controller.renderSignOut)
 
 loginRouter.post("/sign_up", (req, res) => {
@@ -64,7 +63,7 @@ loginRouter.post("/sign_up", (req, res) => {
 
                 //TODO: renderizzare home.ejs con i dati corretti
                 res.send("home.ejs!");
-            }).catch(error => console.log(error)).finally(() => db.close())
+            }).catch(error => console.log(error))
     }
     
     createRecord();
