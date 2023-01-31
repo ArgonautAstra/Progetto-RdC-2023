@@ -9,9 +9,33 @@ const loginRouter = express.Router()
 loginRouter.get("/sign_in",controller.renderSignIn)
 
 loginRouter.post("/sign_in", (req,res)=>{
-    console.log(req.body)   
-    res.sendStatus(200)
-    //select record in unihub.User e, se esiste,
+    const db = sequelize.getDB();
+
+    const selectRecord = async () => {
+        await db.authenticate()
+            .then( () => userModel.sync())
+            .then( () => userModel.findAndCountAll({
+                where: {
+                    username: req.body.username,
+                    password: req.body.password
+                }
+            }))
+            .then(query => {
+                if(query.count == 0) {
+                    console.log("login fallito");
+                    
+                    res.status(400);
+                    controller.renderSignIn(req, res);
+                } else {
+                    console.log("login effettuato");
+                    res.status(200);
+                    res.send("home.ejs!");
+                }
+            })
+            .catch(err => console.log(err)).finally(() => db.close())
+    }
+
+    selectRecord();
 })
 
 /* sign up page */
