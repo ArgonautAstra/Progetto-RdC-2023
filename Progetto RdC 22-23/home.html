@@ -79,6 +79,40 @@
 		transition: 0.5s;
 	}
 	
+	label {
+		margin-top: 10px;
+	}
+	
+	.newp {
+		border: none;
+		border-radius: 25px;
+		height: 24px;
+		margin-top: 3px;
+		margin-bottom: 10px;
+		padding: 0;
+		padding-left: 10px;
+		padding-righ: 10px;
+		color: white;
+		font-size: 14px;
+		background-color: #1F1F1F;
+		width: 100%;
+	}
+	
+	.newpd {
+		border: none;
+		border-radius: 25px;
+		height: 24px;
+		margin-top: 3px;
+		margin-bottom: 10px;
+		padding: 0;
+		padding-left: 10px;
+		padding-righ: 10px;
+		color: white;
+		font-size: 14px;
+		background-color: #1F1F1F;
+		width: 100%;
+	}
+	
 	.btn { 
 		color: white;
 		font-size: 14px;
@@ -104,6 +138,13 @@
 		color:  #A0A0A0;
 		text-decoration: underline;
 		transition: 0.5s
+	}
+	
+	.new{
+		background-color: #323232;
+		border: none;
+		border-radius: 10px;
+		color: white;
 	}
 	
 	.activity {
@@ -184,11 +225,79 @@
 		<div id="project" class="col-sm-3">
 			<div class="d-flex justify-content-between align-items-center">
 				<p style="margin: 0"><b>Top projects</b></p>
-				<a class="btn btn-success" href="">New</a>
+				<a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#new">New</a>
 			</div>
 			
-			<div class="d-flex justify-content-between align-items-center" style="margin-top: 10px">
-		  		<input id="my_proj" class="form-control" type="search" placeholder="Search" aria-label="Search">
+			<div class="modal fade" id="new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  	<div class="modal-dialog modal-lg">
+				  
+					<div class="modal-content new">
+				  		<div class="modal-header new" style="padding-bottom: 5px;">
+							<h5 class="modal-title" id="exampleModalLabel">Create new project</h5>
+							<a class="btn" data-bs-dismiss="modal" style="font-size: 22px">×</a>
+				  		</div>
+					
+				  		<div class="modal-body new" style="padding-top: 5px;">
+							A project contains all project files and folders, including the revision history. 
+							Already have a project repository elsewhere?
+							<a href="#">Import project</a>
+				  		</div>
+					
+				  		<div class="modal-body new">
+							
+							<form action="" method="post">
+							
+								<div class="row">
+									<div class="col-3">
+										<label class="form-label">Owner *</label>
+									</div>	
+									<div class="col-6">
+										<label class="form-label">Project name *</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-3">
+										<select class="form-select newp" aria-label="Default select example" name="username">
+											<option value="0" selected>Account name</option>
+											<option value="1">First account</option>
+											<option value="2">Second account</option>
+										</select>
+									</div>	
+									<div class="col-6">
+										<input class="newp" type="text" class="form-control" placeholder="..." name="name">
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-12">
+										<label class="form-label">Description</label>
+									</div>	
+									<div class="col-12">
+										<textarea class="form newpd" placeholder="..." name="description"></textarea>
+									</div>
+								</div>
+
+								<hr>
+
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="visibility" value="true" checked>
+									Public
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="visibility" value="false">
+									Private
+								</div>
+								
+								<hr>
+								
+    							<button type="submit" class="btn btn-success">Create</button>
+								
+							</form>
+							
+						</div>
+					</div>
+			  	</div>
 			</div>
 			
 			<br>
@@ -222,7 +331,8 @@
 					This Ohio User do something of illegal
 				</p>
 				<div class="row notice">
-					Ohio<br>Ohio<br>Ohio<br>
+					Ohio<br>
+					Ohio<br>Ohio<br>
 				</div>
 			</div>
 			
