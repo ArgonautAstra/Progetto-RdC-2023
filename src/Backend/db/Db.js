@@ -1,40 +1,28 @@
-const { Sequelize } = require('sequelize');
+const { Sequelize} = require('sequelize');
 const config = require("./config.json")
 
 class database {
-    static db
-
-    constructor() {
-        this.connect().then(r => {
-            console.log(r)
-        })
-    }
-
-    static getDB(){
+    db
+    
+    constructor() {}
+    
+    getDB(){
         if (!this.db){
+            console.log("Creato riferimento db")
             this.db = new Sequelize(config.db, config.user, config.password, {
                 host: config.host,
-                dialect: "mysql"
+                dialect: "mysql",
+                logging: false
             });
+            this.db.authenticate()
         }
-
+        console.log("Restituendo il rifermento db")
         return this.db
-
     }
-
-    async connect() {
-        try {
-            await this.db.authenticate();
-            console.log('Connection has been established successfully.');
-        } catch (error) {
-            console.error('Unable to connect to the database:', error);
-        }
-    }
-
-    disconnect(){
-        this.db.close();
-    }
+    
 }
 
-module.exports = database
+
+const db = new database();
+module.exports = db
 

@@ -21,7 +21,7 @@ loginRouter.post("/sign_in", (req,res)=>{
                 }
             }))
             .then(query => {
-                if(query.count == 0) {
+                if(query.count === 0) {
                     console.log("login fallito");
                     
                     res.status(400);
@@ -29,10 +29,10 @@ loginRouter.post("/sign_in", (req,res)=>{
                 } else {
                     console.log("login effettuato");
                     res.status(200);
-                    res.send("home.ejs!");
+                    res.render("home.ejs");
                 }
             })
-            .catch(err => console.log(err)).finally(() => db.close())
+            .catch(err => console.log(err))
     }
 
     selectRecord();
@@ -63,8 +63,8 @@ loginRouter.post("/sign_up", (req, res) => {
                 res.status(200);
 
                 //TODO: renderizzare home.ejs con i dati corretti
-                res.send("home.ejs!");
-            }).catch(error => console.log(error)).finally(() => db.close())
+                res.render("home.ejs");
+            }).catch(error => console.log(error))
     }
     
     createRecord();

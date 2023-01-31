@@ -2,14 +2,11 @@ const express = require('express')
 const database = require("./src/Backend/db/Db")
 const path = require("path");
 const app = express();
-const data = database.getDB()
 const port = 3000;
-//const multer = require("multer")();
 
 const indexRoute = require("./src/Backend/routers/indexRoute")
 const homeRoute = require("./src/Backend/routers/homeRoute")
 const loginRoute = require("./src/Backend/routers/loginRoute")
-const {urlencoded} = require("express");
 
 
 
@@ -36,4 +33,10 @@ app.use("/", loginRoute)
 
 app.listen(port, () => {
 	console.log(`Worker: process ${process.pid} is up on port ${port}`);
-});
+})
+// 	.close((err)=>{
+// 	console.log(err)
+// 	database.getDB().close();
+// 	process.exit(err ? 1 : 0)
+// })
+

@@ -4,6 +4,7 @@ const { DataTypes } = require('sequelize');
 
 const db = seq.getDB();
 
+
 const user = db.define("User", {
     id: {
         type: DataTypes.INTEGER,
