@@ -12,6 +12,7 @@
 
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
 
 </head>
 
@@ -75,8 +76,8 @@
     <div class="container" style="width: 30%; position: absolute; top: 10%">
         <div class="row" align="center">
             <div>
-                <img src="img/UNIHub2.png" alt="logo" width="35%" onClick="window.location = 'index'">
-                <% var login_status; if(login_status==false) { %>
+                <img src="img/UNIHub2.png" alt="logo" width="35%" onClick="show()">
+                <% var login_status; if(login_status===false) { %>
                     <br>
                     <a name = "login_failed" style = "color: red; font-size: medium;" >Login fallito: utente non registrato <br> </a>
                 <% } %>
@@ -108,7 +109,8 @@
 <!-- Controller -->
 
 <script>
-
+	
+    
 </script>
 
 </html>

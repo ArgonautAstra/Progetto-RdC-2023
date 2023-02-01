@@ -4,40 +4,23 @@ const sequelize = require('../db/Db')
 const userModel = require('../models/User')
 const fileModel = require("../models/Files")
 const projectRouter = express.Router()
+const fileUpload = require("express-fileupload");
+const filesPayloadExists = require("../middleware/filesPayloadExists")
+const fileSizeLimiter = require("../middleware/fileSizeLimiter")
+const fileExtLimiter = require("../middleware/fileExtLimiter")
+const path = require("path");
 
-/* sign in page */
-projectRouter.get("/sign_in",controller.renderSignIn)
 
-projectRouter.post("/sign_in", (req,res)=>{
-	const db = sequelize.getDB();
-
-	const selectRecord = async () => {
-		await db.authenticate()
-			.then( () => userModel.sync())
-			.then( () => userModel.findAndCountAll({
-				where: {
-					username: req.body.username,
-					password: req.body.password
-				}
-			}))
-			.then(query => {
-				if(query.count === 0) {
-					console.log("login fallito");
-
-					res.status(400);
-					controller.renderSignIn(req, res, false);
-				} else {
-					console.log("login effettuato");
-					res.status(200);
-					res.render("home.ejs");
-				}
-			})
-			.catch(err => console.log(err))
-	}
-
-	selectRecord();
+projectRouter.get("/", (req, res) => {
+	res.render("project.ejs")
 })
 
+projectRouter.post("/upload",
+	fileUpload({createParentPath: true}),
+	filesPayloadExists,
+	fileExtLimiter(['.png', '.jpg', '.jpeg']),
+	fileSizeLimiter,
+	controller.uploadFile)
 
 
 module.exports = projectRouter

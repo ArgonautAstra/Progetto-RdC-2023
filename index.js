@@ -6,6 +6,8 @@ const port = 3000;
 const indexRoute = require("./src/Backend/routers/indexRoute")
 const homeRoute = require("./src/Backend/routers/homeRoute")
 const loginRoute = require("./src/Backend/routers/loginRoute")
+const projectRoute = require("./src/Backend/routers/projectRoute")
+const itemRoute = require("./src/Backend/routers/itemRoute")
 
 
 
@@ -22,6 +24,8 @@ app.set("view engine", "ejs")
 app.use("/",indexRoute)
 app.use("/home", homeRoute)
 app.use("/", loginRoute)
+app.use("/project",projectRoute)
+app.use("/item", itemRoute)
 //app.use("/index", indexRoute)
 
 
