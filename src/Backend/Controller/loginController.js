@@ -25,7 +25,6 @@ exports.verifyData = async (req, res) => {
 		.then(query => {
 			if (query.count === 0) {
 				console.log("login fallito");
-
 				res.status(400);
 				this.renderSignIn(req, res, false);
 			} else {

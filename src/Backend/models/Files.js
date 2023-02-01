@@ -7,7 +7,7 @@ const db = seq.getDB();
 
 
 const File = db.define("File", {
-        field:{
+        fileid:{
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
@@ -16,7 +16,7 @@ const File = db.define("File", {
             type: DataTypes.STRING,
             allowNull: false
         },
-        path:{
+        filePath:{
             type: DataTypes.STRING,
             allowNull: false
         },
