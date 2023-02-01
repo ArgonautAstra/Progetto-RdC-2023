@@ -15,6 +15,7 @@ class database {
                 logging: false
             });
             this.db.authenticate()
+            return this.db
         }
         console.log("Restituendo il rifermento db")
         return this.db
