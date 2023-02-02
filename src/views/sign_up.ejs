@@ -76,6 +76,14 @@
         <div class="row" align="center">
             <div>
                 <img src="img/UNIHub2.png" alt="logo" width="35%" onClick="window.location = 'index'">
+                <% var register_status; %>
+                <% if(register_status === 1) { %>
+                    <br>
+                    <a name = "login_failed" style = "color: red; font-size: medium;" >Registrazione fallita: email già utilizzata da un altro account <br> </a>
+                <% } else if(register_status === 2) { %>
+                    <br>
+                    <a name = "login_failed" style = "color: red; font-size: medium;" >Registrazione fallita: username già esistente<br> </a>
+                <% } %>
             </div>
             <h5>Sign up to UNIHub</h5>
         </div>

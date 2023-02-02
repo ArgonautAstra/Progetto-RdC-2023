@@ -1,3 +1,4 @@
+const { Sequelize } = require("sequelize");
 const sequelize = require("../db/Db");
 const userModel = require("../models/User");
 
@@ -9,8 +10,10 @@ exports.renderSignIn = (req, res, status) => {
 	})
 }
 
-exports.renderSignOut = (req, res) => {
-	res.render("sign_up");
+exports.renderSignOut = (req, res, status) => {
+	res.render("sign_up", {
+		register_status: status
+	});
 }
 
 exports.verifyData = async (req, res) => {
@@ -30,6 +33,8 @@ exports.verifyData = async (req, res) => {
 			} else {
 				console.log("login effettuato");
 				res.status(200);
+
+				//TODO: modificare con dati corretti presi dal db
 				res.render("home.ejs");
 			}
 		})
@@ -38,6 +43,7 @@ exports.verifyData = async (req, res) => {
 }
 
 exports.insertData = async (req,res) => {
+
 	await db.authenticate()
 		.then(() =>
 			userModel.sync()
@@ -55,7 +61,21 @@ exports.insertData = async (req,res) => {
 
 			//TODO: renderizzare home.ejs con i dati corretti
 			res.render("home.ejs");
-		}).catch(error => console.log(error))
+		}).catch(err => {
+			let status = 0;
+
+			//gestione violazione dei vincoli di unicità della tabella User
+			if(err instanceof Sequelize.UniqueConstraintError) {
+				if(err.fields.email !== undefined) {
+					status = 1;
+				} else {
+					status = 2;
+				}
+			}
+			console.log(status);
+			res.status(400);
+			this.renderSignOut(req, res, status);
+		})
 }
 
 
