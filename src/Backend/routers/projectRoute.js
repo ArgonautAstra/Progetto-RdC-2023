@@ -6,6 +6,7 @@ const fileUpload = require("express-fileupload");
 const filesPayloadExists = require("../middleware/filesPayloadExists")
 const fileSizeLimiter = require("../middleware/fileSizeLimiter")
 const fileExtLimiter = require("../middleware/fileExtLimiter")
+const fileExtDB = require("../middleware/fileExtDB")
 
 
 
@@ -20,7 +21,9 @@ projectRouter.post("/upload",
 	fileSizeLimiter,
 	controller.uploadFile)
 
-projectRouter.post("/:projectid/:fileid", controller.downloadFile)
+projectRouter.get("/:projectid/:fileid",
+	fileExtDB,
+	controller.downloadFile)
 
 
 module.exports = projectRouter

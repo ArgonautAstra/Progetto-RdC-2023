@@ -14,12 +14,12 @@
 	<script src="./js/bootstrap.min.js"></script>
 	<script src="./js/bootstrap.bundle.min.js"></script>
 	
-</head>	
+</head>
 
 <!-- CSS -->
-	
+
 <style>
-	
+
 	#navbar {
 		padding: 0;
 		position: sticky;
@@ -28,29 +28,29 @@
 		background-color: #323232;
 		box-shadow: 2px 0 5px 0 #1F1F1F;
 	}
-	
+
 	#subnavbar {
 		padding: 10px;
 		border-bottom: 2px solid #323232;
 	}
-	
+
 	#body {
 		background-color: #1F1F1F;
 		overflow-x: hidden;
 		font-size: 14px;
 		color: white;
 	}
-	
-	#main { 
-	
+
+	#main {
+
 	}
-	
+
 	#project {
 		background-color: #2C2C2C;
 		border-right: 2px solid #323232;
 		padding: 2%;
 	}
-	
+
 	#my_proj {
 		height: 24px;
 		border-radius: 100px;
@@ -58,65 +58,106 @@
 		background-color: #1F1F1F;
 		color: white;
 	}
-	
+
 	#dashboard {
 		padding: 4%;
 	}
-	
+
+	#formFileSm {
+		margin-top: 10px;
+	}
+
 	#info {
 		background-color: #2C2C2C;
 	}
-	
+
 	#footer {
 		background-color: white;
 		color: #1F1F1F;
 	}
-	
+
 	img:hover {
 		cursor: pointer;
 	}
-	
+
 	a img {
 		filter: invert(100%);
 	}
-	
+
 	a img:hover {
 		filter: invert(50%);
 		transition: 0.5s;
 	}
-	
-	.btn { 
+
+	.newp {
+		border: none;
+		border-radius: 25px;
+		height: 24px;
+		margin-top: 3px;
+		margin-bottom: 10px;
+		padding: 0;
+		padding-left: 10px;
+		padding-righ: 10px;
+		color: white;
+		font-size: 14px;
+		background-color: #1F1F1F;
+		width: 100%;
+	}
+
+	.newpd {
+		border: none;
+		border-radius: 15px;
+		height: 100px;
+		margin-top: 3px;
+		margin-bottom: 10px;
+		padding: 0;
+		padding-left: 10px;
+		padding-righ: 10px;
+		color: white;
+		font-size: 14px;
+		background-color: #1F1F1F;
+		width: 100%;
+	}
+
+	.btn {
 		color: white;
 		font-size: 14px;
 		font-weight: 500;
 	}
-	
+
 	.btn:hover {
 		color:  #A0A0A0;
 		transition: 0.5s;
 	}
-	
+
 	.proj {
 		color: white;
 		font-size: 14px;
 		text-decoration: none;
 	}
-	
+
 	.proj p{
 		margin-bottom: 5px;
 	}
-	
+
 	.proj:hover {
 		color:  #A0A0A0;
 		text-decoration: underline;
 		transition: 0.5s
 	}
-	
+
+	.new{
+		background-color: #323232;
+		border: none;
+		border-radius: 10px;
+		color: white;
+	}
+
 	.path {
 		font-size: 24px;
 		text-decoration: none;
 	}
-	
+
 	.visibility {
 		margin-left: 10px;
 		border-radius: 25px;
@@ -126,45 +167,45 @@
 		text-decoration: none;
 		color: #A0A0A0;
 	}
-	
+
 	.activity {
 		border: 1px dashed white;
 		border-radius: 10px;
 		padding: 4%;
 		font-size: 12px;
 	}
-	
+
 	.sub {
 		border-radius: 10px;
 		border: 2px solid #A0A0A0;
 		color: #A0A0A0;
 		font-size: 12px;
-		margin-left: 10px; 
+		margin-left: 10px;
 	}
-	
+
 	.menu_dash {
 		border-bottom: 2px solid #323232;
 	}
-	
+
 	.notify {
 		margin-bottom: 0;
 		margin-top: 20px;
 	}
-	
+
 	.notice {
 		background-color: #2C2C2C;
 		border: 2px solid #323232;
 		border-radius: 10px;
 		padding: 10px;
 	}
-	
+
 	.table {
 		border-radius: 10px;
 		border: 1px solid #A0A0A0;
 		padding: 0;
 		margin-top: 10px;
 	}
-	
+
 	.folder {
 		background-color: #323232;
 		border-top-left-radius: 10px;
@@ -173,165 +214,241 @@
 		width: 100%;
 		text-align: left;
 	}
-	
+
+	.file{
+		padding-left: 10px;
+	}
+
 	.icon {
 		height: 20px;
 		filter: invert(100%);
 		margin-left: 10px;
 	}
-	
+
 	.description{
 		border-radius: 10px;
 		border: 1px solid #A0A0A0;
 		padding: 20px;
 		margin-top: 10px;
 	}
-	
+
 	.form-control {
 		height: 24px;
 		border-radius: 100px;
 		border: none;
 	}
-	
+
 	@media screen and (max-width: 600px) {
 		#project {
 			position: inherit;
 		}
 	}
-	
-</style>
-	
-<!-- body --> 
-	
-<body id="body"> 
-	
-	<!-- navbar -->
-	
-	<div id="navbar" class="navbar justify-content-center">
-		<div class="container-fluid">
-			<div class="d-flex justify-content-left align-items-center">
-				<img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = 'index.ejs'">
-		  		<input class="form-control" type="search" placeholder="Search" aria-label="Search">
-				<a class="btn" href="">Push</a>
-				<a class="btn" href="">Pull</a>
-				<a class="btn" href="">Ohio</a>
-				<a class="btn" href="">Explore</a>
-			</div>
-			
-			<div class="d-flex justify-content-right align-items-center">
-				<a class="btn" href=""><img src="img/svg/bell.svg" alt="notify"></a>
-				
-					<button class="btn btn-sm dropdown-toggle" type="button" id="drop_settings" data-bs-toggle="dropdown" aria-expanded="false">
-						<img class="navbar-brand" src="img/UNIHub2.png" alt="icon" height="40px">
-				  	</button>
-				  	<ul class="dropdown-menu" aria-labelledby="drop_settings">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li>
-				  	</ul>
-			</div>
-		</div>
-	</div>
-	
-	<!-- subnavbar -->
-	
-	<div id="subnavbar" class="navbar">
-		<div class="container-fluid justify-content-between">
-			<div class="d-flex align-items-center">
-				<a class="path" href="#">Example/of/project/path</a>
-				<button class="visibility">Visibility</button>
-			</div>
-			
-			<div class="d-flex align-items-center">
-				<div class="dropdown">
-				  	<a class="btn dropdown-toggle sub" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-						Option #1
-				  	</a>
-			  		<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						<li><a class="dropdown-item" href="#">Action 1.1</a></li>
-						<li><a class="dropdown-item" href="#">Action 1.2</a></li>
-						<li><a class="dropdown-item" href="#">Action 1.3</a></li>
-			  		</ul>
-				</div>
-				
-				<div class="dropdown">
-				  	<a class="btn dropdown-toggle sub" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-						Option #2
-				  	</a>
-			  		<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						<li><a class="dropdown-item" href="#">Action 2.1</a></li>
-						<li><a class="dropdown-item" href="#">Action 2.2</a></li>
-						<li><a class="dropdown-item" href="#">Action 2.3</a></li>
-			  		</ul>
-				</div>
-				
-				<div class="dropdown">
-				  	<a class="btn dropdown-toggle sub" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-						Option #3
-				  	</a>
-			  		<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						<li><a class="dropdown-item" href="#">Action 3.1</a></li>
-						<li><a class="dropdown-item" href="#">Action 3.2</a></li>
-						<li><a class="dropdown-item" href="#">Action 3.3</a></li>
-			  		</ul>
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="d-flex justify-content-start">
-				<a class="btn proj" href="">Something #1</a>
-				<a class="btn proj" href="">Something #2</a>
-				<a class="btn proj" href="">Something #3</a>
-				<a class="btn proj" href="">Something #4</a>
-			</div>
-		</div>
-	</div>
-	
-	<!-- main -->
-	
-	<div id="main" class="row">
 
-		<!-- project --> 
-		
-		<div id="dashboard" class="col-sm-9">
+</style>
+
+<!-- body -->
+
+<body id="body">
+
+<!-- navbar -->
+
+<div id="navbar" class="navbar justify-content-center">
+	<div class="container-fluid">
+		<div class="d-flex justify-content-left align-items-center">
+			<img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = 'home.html'">
+			<input class="form-control" type="search" placeholder="Search" aria-label="Search">
+			<a class="btn" href="">Push</a>
+			<a class="btn" href="">Pull</a>
+			<a class="btn" href="">Ohio</a>
+			<a class="btn" href="">Explore</a>
+		</div>
+
+		<div class="d-flex justify-content-right align-items-center">
+			<a class="btn" href=""><img src="img/svg/bell.svg" alt="notify"></a>
+
+			<button class="btn btn-sm dropdown-toggle" type="button" id="drop_settings" data-bs-toggle="dropdown" aria-expanded="false">
+				<img class="navbar-brand" src="img/UNIHub2.png" alt="icon" height="40px">
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="drop_settings">
+				<li><a class="dropdown-item" href="#">Action</a></li>
+				<li><a class="dropdown-item" href="#">Another action</a></li>
+				<li><a class="dropdown-item" href="#">Something else here</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!-- subnavbar -->
+
+<div id="subnavbar" class="navbar">
+	<div class="container-fluid justify-content-between">
+		<div class="d-flex align-items-center">
+			<a class="path" href="#">Example/of/project/path</a>
+			<button class="visibility">Visibility</button>
+		</div>
+
+		<div class="d-flex align-items-center">
+			<div class="dropdown">
+				<a class="btn dropdown-toggle sub" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+					Option #1
+				</a>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+					<li><a class="dropdown-item" href="#">Action 1.1</a></li>
+					<li><a class="dropdown-item" href="#">Action 1.2</a></li>
+					<li><a class="dropdown-item" href="#">Action 1.3</a></li>
+				</ul>
+			</div>
+
+			<div class="dropdown">
+				<a class="btn dropdown-toggle sub" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+					Option #2
+				</a>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+					<li><a class="dropdown-item" href="#">Action 2.1</a></li>
+					<li><a class="dropdown-item" href="#">Action 2.2</a></li>
+					<li><a class="dropdown-item" href="#">Action 2.3</a></li>
+				</ul>
+			</div>
+
+			<div class="dropdown">
+				<a class="btn dropdown-toggle sub" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+					Option #3
+				</a>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+					<li><a class="dropdown-item" href="#">Action 3.1</a></li>
+					<li><a class="dropdown-item" href="#">Action 3.2</a></li>
+					<li><a class="dropdown-item" href="#">Action 3.3</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="d-flex justify-content-start">
+			<a class="btn proj" href="">Something #1</a>
+			<a class="btn proj" href="">Something #2</a>
+			<a class="btn proj" href="">Something #3</a>
+			<a class="btn proj" href="">Something #4</a>
+		</div>
+	</div>
+</div>
+
+<!-- main -->
+
+<div id="main" class="row">
+
+	<!-- project -->
+
+	<div id="dashboard" class="col-sm-9">
+
+		<!-- new project modal-->
+
+		<div class="modal fade" id="new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+
+				<!-- new project modal-->
+
+				<div class="modal-content new">
+					<div class="modal-header new" style="padding-bottom: 5px;">
+						<h5 class="modal-title" id="exampleModalLabel">Add new file</h5>
+						<a class="btn" data-bs-dismiss="modal" style="font-size: 22px">×</a>
+					</div>
+
+					<div class="modal-body new" style="padding-top: 5px;">
+						A project contains all project files and folders, including the revision history.
+						Already have a project repository elsewhere?
+						<a href="#">Import project</a>
+					</div>
+
+					<div class="modal-body new">
+
+						<form id="uploadForm" action="" method="post">
+
+							<div class="row">
+								<div class="col-6">
+									<div class="mb-3">
+										<a href="#" style="text-decoration: none; font-size: 20px;">Example/of/project/path/</a>
+										<input class="form-control form-control-sm" id="myFiles" type="file">
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-12">
+									<label class="form-label">Upload changes</label>
+								</div>
+								<div class="col-12">
+									<input type="text" class="form-control newp" placeholder="Add file via upload" name="title"></input>
+								</div>
+								<div class="col-12">
+									<textarea class="form newpd" placeholder="Add an optional extended descrtption" name="description"></textarea>
+								</div>
+							</div>
+
+							<hr>
+
+							<button type="submit" class="btn btn-success">Upload</button>
+
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<form action="#" method="post">
+
 			<div class="container-fluid" align="right">
 				<a class="btn" href="">Explore</a>
-				<form id="uploadForm">
-					<input class="btn btn-secondary" type="file" id="myFiles" accept="image/*" multiple />
-					<button type="submit">submit</button>
-				</form>
-				<a class="btn btn-success" href="">Download</a>
+				<a class="btn" data-bs-toggle="modal" data-bs-target="#new">Upload</a>
+				<button class="btn btn-success" type="submit" href="">Download</button>
 			</div>
-			
+
+			<!-- current folder-->
+
 			<div class="container-fluid table">
 				<div><a class="btn folder" href="">Current folder</a></div>
-				<div><img src="img/svg/folder.svg" class="icon"><a class="btn" href="">Folder #1</a></div>
-				<div><img src="img/svg/folder.svg" class="icon"><a class="btn" href="">Folder #2</a></div>
-				<div><img src="img/svg/doc.svg" class="icon"><a class="btn" href="">File #1</a></div>
-				<div><img src="img/svg/doc.svg" class="icon"><a class="btn" href="">File #2</a></div>
+				<div class="d-flex align-items-center file">
+					<input class="form-check-input" type="checkbox" id="gridCheck">
+					<img src="img/svg/folder.svg" class="icon"><a class="btn" href="">Folder #1</a>
+				</div>
+				<div class="d-flex align-items-center file">
+					<input class="form-check-input" type="checkbox" id="gridCheck">
+					<img src="img/svg/folder.svg" class="icon"><a class="btn" href="">Folder #2</a>
+				</div>
+				<div class="d-flex align-items-center file">
+					<input class="form-check-input" type="checkbox" id="gridCheck">
+					<img src="img/svg/doc.svg" class="icon"><a class="btn" href="item.html">File #1</a>
+				</div>
+				<div class="d-flex align-items-center file">
+					<input class="form-check-input" type="checkbox" id="gridCheck">
+					<img src="img/svg/doc.svg" class="icon"><a class="btn" href="item.html">File #2</a>
+				</div>
 			</div>
-			
-			<div class="container-fluid description">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-				<img src="img/ohio.png" width="100%" height="auto">
-			</div>
-		</div>
-	
-		<!-- info --> 
+		</form>
 
-		<div id="info" class="col-sm-3">
-				
+		<!-- project description-->
+
+		<div class="container-fluid description">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			<img src="img/ohio.png" width="100%" height="auto">
 		</div>
-		
 	</div>
-	
-	<!-- footer -->
-	
-	<div id="footer" class="row " align="center">
-		<p><b>Powered by</b>&emsp;Andrea Spinelli, Marco Valenti, Raffaele Terracino</p>
+
+	<!-- info -->
+
+	<div id="info" class="col-sm-3">
+
 	</div>
-	
+
+</div>
+
+<!-- footer -->
+
+<div id="footer" class="row " align="center">
+	<p><b>Powered by</b>&emsp;Andrea Spinelli, Marco Valenti, Raffaele Terracino</p>
+</div>
+
 </body>
 	
 <!-- script --> 

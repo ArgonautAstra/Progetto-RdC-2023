@@ -2,6 +2,7 @@ const path = require("path");
 const fileModel = require("../models/Files")
 const projectfilesModel = require("../models/ProjectFiles")
 const db = require("../db/Db").getDB()
+const fs = require("fs")
 
 exports.uploadFile = async (req,res)=>{
 	const files = req.files
@@ -9,8 +10,8 @@ exports.uploadFile = async (req,res)=>{
 	for (const key of Object.keys(files)) {
 		const filepath = path.join(process.cwd(), 'files', files[key].name)
 		console.log(filepath)
-		files[key].mv(filepath, (err) => {
-			if (err) return res.status(500).json({ status: "error", message: err })
+		await files[key].mv(filepath, (err) => {
+			if (err) return res.status(500).json({status: "error", message: err})
 		})
 		await db.authenticate()
 			.then(() =>
@@ -36,24 +37,10 @@ exports.uploadFile = async (req,res)=>{
 }
 
 exports.downloadFile = async (req, res) =>{
-	const projectid = req.params.projectid
-	const fileid = req.params.fileid
-	console.log(projectid,fileid)
-	await db.authenticate()
-		.then(() => projectfilesModel.sync())
-		.then(() => projectfilesModel.findAndCountAll({
-			where:{
-				projectId: projectid,
-				fileId: fileid
-			}
-		}))
-		.then(query =>{
-			if (query.count === 0) {
-				console.log("nessun file o progetto trovato");
-				res.status(400);
-			} else {
-				console.log(query.toJSON())
-				res.status(200)
-			}
-		})
+	const json = res.locals.dataValues
+	
+	await res.download(json.filePath,json.fileName,(err)=>{
+		if (err)
+			res.statusCode(500)
+	})
 }
