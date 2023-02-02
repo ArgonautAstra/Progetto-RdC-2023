@@ -2,7 +2,16 @@
     "configurations": [
     {
         "name": "Launch Program",
-        "program": "${workspaceFolder}/index.js",
+        "program": "${workspaceFolder}/src/Backend/db/testJoin.js",
+        "request": "launch",
+        "skipFiles": [
+            "<node_internals>/**"
+        ],
+        "type": "node"
+    },
+    {
+        "name": "Test join",
+        "program": "${workspaceFolder}/src/Backend/db/testJoin.js",
         "request": "launch",
         "skipFiles": [
             "<node_internals>/**"

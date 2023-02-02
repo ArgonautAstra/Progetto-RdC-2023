@@ -1,6 +1,7 @@
 const { Sequelize } = require("sequelize");
 const sequelize = require("../db/Db");
 const userModel = require("../models/User");
+const homeController = require('../Controller/homeController');
 
 const db = sequelize.getDB();
 
@@ -33,9 +34,10 @@ exports.verifyData = async (req, res) => {
 			} else {
 				console.log("login effettuato");
 				res.status(200);
-
+				
+				id = query.rows[0].dataValues.id;
 				//TODO: modificare con dati corretti presi dal db
-				res.render("home.ejs");
+				homeController.renderHome(req, res, id)
 			}
 		})
 		.catch(err => console.log(err))
