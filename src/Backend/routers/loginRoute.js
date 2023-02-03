@@ -1,7 +1,6 @@
 const express = require("express")
 const controller = require("../Controller/loginController")
 
-
 const loginRouter = express.Router()
 
 /* sign in page */

@@ -17,7 +17,7 @@ class database {
             this.db.authenticate()
             return this.db
         }
-        console.log("Restituendo il rifermento db")
+        console.log("Restituendo il riferimento db")
         return this.db
     }
     

@@ -231,7 +231,7 @@
 
     <div id="project" class="col-sm-3">
         <div class="d-flex justify-content-between align-items-center">
-            <p style="margin: 0"><b>Top projects</b></p>
+            <p style="margin: 0"><b>Project list</b></p>
             <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#new">New</a>
         </div>
 
@@ -311,9 +311,9 @@
         </div>
 
         <br>
-        <a class="proj" href="project.html"><p>Example/of/project/path#1</p></a>
-        <a class="proj" href="project.html"><p>Example/of/project/path#2</p></a>
-        <a class="proj" href="project.html"><p>Example/of/project/path#3</p></a>
+        <% var userProjects;%> <% for(var i = 0; i < userProjects.length; i++) { %>
+            <a class="proj" href="/project"><p><%=userProjects[i]%></p></a>
+        <%}%>    
         <br>
 
         <div class="d-flex justify-content-between align-items-center">

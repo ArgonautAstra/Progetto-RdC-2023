@@ -1,8 +1,8 @@
 const express = require('express');
-const seq = require('./Db');
-const user = require('../models/User');
-const projectTeam = require('../models/ProjectTeam')
-const project = require('../models/Project')
+const seq = require('../Db');
+const user = require('../../models/User');
+const projectTeam = require('../../models/ProjectTeam')
+const project = require('../../models/Project')
 const port = 3000;
 const app = express();
 
