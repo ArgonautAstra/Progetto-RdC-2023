@@ -22,7 +22,7 @@ app.set("view engine", "ejs")
 
 
 app.use("/",indexRoute)
-app.use("/home", homeRoute)
+app.use("/", homeRoute)
 app.use("/", loginRoute)
 app.use("/project",projectRoute)
 app.use("/item", itemRoute)

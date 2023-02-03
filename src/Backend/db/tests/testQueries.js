@@ -13,8 +13,13 @@ app.listen(port, async () => {
         dialect: "mysql",
         logging: false
     });
-    const [userProjects, metadata] = await db.query("SELECT P.projectId, P.name FROM ProjectTeam PT INNER JOIN Project P ON PT.projectId = P.projectId WHERE userId =15");
-    for(project of userProjects) {
-        console.log(project.name)
+    req = {
+        body: {
+            name: "progettino",
+            visibility: true,
+            description: "descrizione"
+        }
     }
+    const query = await db.query("INSERT INTO Project(name, visibility, description) VALUES(\'" + req.body.name + "\'," + req.body.visibility + ",\'"+req.body.description +"\')");
+    console.log(query);
 })
