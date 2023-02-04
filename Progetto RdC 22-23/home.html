@@ -195,10 +195,10 @@
 			<div class="d-flex justify-content-left align-items-center">
 				<img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = 'index.html'">
 		  		<input class="form-control" type="search" placeholder="Search" aria-label="Search">
-				<a class="btn" href="">Push</a>
-				<a class="btn" href="">Pull</a>
-				<a class="btn" href="">Ohio</a>
-				<a class="btn" href="">Explore</a>
+				<a class="btn" href="">Ohio#1</a>
+				<a class="btn" href="">Ohio#2</a>
+				<a class="btn" href="">Ohio#3</a>
+				<a class="btn" href="" data-bs-toggle="modal" data-bs-target="#invite">Invite</a>
 			</div>
 			
 			<div class="d-flex justify-content-right align-items-center">
@@ -219,6 +219,59 @@
 	<!-- main -->
 	
 	<div id="main" class="row">
+		
+		<!-- invite modal--> 
+			
+		<div class="modal fade" id="invite" tabindex="0" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  	<div class="modal-dialog modal-lg">
+				  
+				<div class="modal-content new">
+			  		<div class="modal-header new" style="padding-bottom: 5px;">
+						<h5 class="modal-title" id="exampleModalLabel">Invite a collaborator</h5>
+						<a class="btn" data-bs-dismiss="modal" style="font-size: 22px">×</a>
+			  		</div>
+					
+			  		<div class="modal-body new" style="padding-top: 5px;">
+						A project contains all project files and folders, including the revision history. 
+						Already have a project repository elsewhere?
+						<a href="#">Import project</a>
+			  		</div>
+					
+			  		<div class="modal-body new">
+						
+						<form action="" method="post">
+							
+							<div class="row">
+								<div class="col-3">
+									<label class="form-label">Project *</label>
+								</div>	
+								<div class="col-6">
+									<label class="form-label">User *</label>
+								</div>
+							</div>
+								<div class="row">
+								<div class="col-3">
+									<select class="form-select newp" aria-label="Default select example" name="username">
+										<option value="1">First project</option>
+										<option value="2">Second project</option>
+										<option value="2">Third project</option>
+									</select>
+								</div>	
+								<div class="col-6">
+									<input class="newp" type="text" class="form-control" placeholder="..." name="name">
+								</div>
+							</div>
+							
+							<hr>
+							
+   							<button type="submit" class="btn btn-success">Invite</button>
+								
+						</form>
+						
+					</div>
+				</div>
+		  	</div>
+		</div>
 	
 		<!-- project list --> 
 
