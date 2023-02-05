@@ -2,6 +2,8 @@ const { Sequelize } = require("sequelize");
 const sequelize = require("../db/Db");
 const userModel = require("../models/User");
 const homeController = require('../Controller/homeController');
+const fs = require('fs');
+const path = require('path');
 
 const db = sequelize.getDB();
 
@@ -35,9 +37,8 @@ exports.verifyData = async (req, res) => {
 				console.log("login effettuato");
 				res.status(200);
 				
-				id = query.rows[0].dataValues.id;
-				//TODO: modificare con dati corretti presi dal db
-				homeController.renderHome(req, res, id)
+				let id = query.rows[0].dataValues.id;
+				redirectToHome(res, id)
 			}
 		})
 		.catch(err => console.log(err))
@@ -57,12 +58,12 @@ exports.insertData = async (req,res) => {
 				email: req.body.email,
 				password: req.body.password
 			})
-		).then( () => {
+		).then( query => {
 			console.log("record inserito con successo");
 			res.status(200);
-
-			//TODO: renderizzare home.ejs con i dati corretti
-			res.render("home.ejs");
+			let id = query.dataValues.id;
+			redirectToHome(res, id);
+			
 		}).catch(err => {
 			let status = 0;
 
@@ -80,7 +81,26 @@ exports.insertData = async (req,res) => {
 		})
 }
 
+const redirectToHome = async (res, userId) => {
+	const [projects, metadata] = await db.query("SELECT P.name FROM ProjectTeam PT INNER JOIN Project P ON PT.projectId = P.projectId WHERE userId="+userId)
+									.catch(err => console.log(err));
 
+    const arr = []
+
+    for(project of projects)
+        arr.push(project.name)
+
+    //creazione di un file json da cui ricavare i dati per il resto delle operazion
+    let userInfo = {
+        userId: userId,
+        projects: arr
+    };
+
+    fs.writeFileSync(path.join(__dirname + "../../userInfo.json"), JSON.stringify(userInfo));
+
+	res.redirect('/home');
+
+}
 
 
     
