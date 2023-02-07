@@ -1,6 +1,7 @@
 const { Sequelize} = require('sequelize');
 const config = require("./config.json")
 
+
 class database {
     db
     

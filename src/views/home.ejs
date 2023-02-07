@@ -311,9 +311,20 @@
         </div>
 
         <br>
-        <% var userProjects;%> <% for(var i = 0; i < userProjects.length; i++) { %>
-            <a class="proj" href="/project"><p><%=userProjects[i]%></p></a>
-        <%}%>    
+        <!--        <% var userProjects; %> <% for(var i = 0; i < userProjects.length; i++) { %>-->
+        <!--            <a class="proj" href="/project"><p><%= userProjects[i] %></p></a>-->
+        <!--        <% } %>    -->
+        <form method="post" action="/project">
+            <input type="hidden" name="extra_submit_param" value="extra_submit_param">
+            <button type="submit" name="submit_param" value="submit_param" class="btn btn-outline-secondary" style="border:1px solid transparent; padding: .375rem .75rem  ">
+                <% var userProjects; %>
+                <% for(var i = 0; i < userProjects.length; i++) { %>
+                    <br>
+                    <a class="proj" href="/project"><p><%= userProjects[i] %></p></a>
+                    <br>
+                <% } %>
+            </button>
+        </form>
         <br>
 
         <div class="d-flex justify-content-between align-items-center">

@@ -10,9 +10,7 @@ const fileExtDB = require("../middleware/fileExtDB")
 
 
 
-projectRouter.get("/", (req, res) => {
-	res.render("project.ejs")
-})
+projectRouter.get("/", controller.getProject)
 
 projectRouter.post("/upload",
 	fileUpload({createParentPath: true}),
