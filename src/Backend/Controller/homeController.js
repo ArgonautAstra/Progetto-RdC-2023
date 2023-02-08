@@ -29,7 +29,7 @@ exports.createProject = async(req, res)  => {
     const userInfo = JSON.parse(fs.readFileSync(path.join(__dirname + "../../userInfo.json")));
 
     await db.query("INSERT INTO Project(name, visibility, description) VALUES(\'" + req.body.name + "\'," + req.body.visibility + ",\'"+req.body.description +"\')")
-        .then(res => db.query("INSERT INTO ProjectTeam(projectId, userId) VALUES(" + res[0] +"," + userInfo.userId + ")"))
+        .then(res => db.query("INSERT INTO ProjectTeam(projectId, userId, role) VALUES(" + res[0] +"," + userInfo.userId + ", \'Owner\' )"))
         .catch(err => console.log(err));
 
     userInfo.projects.push(req.body.name)
@@ -37,4 +37,17 @@ exports.createProject = async(req, res)  => {
     //scrittura dei dati aggiornati nel json
     fs.writeFileSync(path.join(__dirname + "../../userInfo.json"), JSON.stringify(userInfo));
     res.redirect('/home');
+}
+
+exports.inviteUser = async(req, res) => {
+    const userInfo = JSON.parse(fs.readFileSync(path.join(__dirname + "../../userInfo.json")));
+    const projectName = userInfo.projects[req.body.projectIndex];
+    const userId = await db.query("SELECT id FROM User WHERE username =\'" + req.body.username + "\'").catch(err => console.log(err));
+    const projectId = await db.query("SELECT P.projectId FROM ProjectTeam PT INNER JOIN  Project P WHERE userId = " + userId[0][0].id+ " AND name = \'" + projectName + "\'").catch(err => console.log(err));
+
+    await db.query("INSERT INTO ProjectTeam(projectId, userId, role) VALUES(" + projectId[0][0].projectId +"," + userId[0][0].id + ",\'Collaborator\')")
+        .catch(err => console.log(err));
+
+    res.redirect('/home')
+
 }

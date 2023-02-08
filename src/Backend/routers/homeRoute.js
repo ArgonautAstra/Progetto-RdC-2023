@@ -10,6 +10,8 @@ homeRouter.post("/new", (req, res) => {
     controller.createProject(req, res, 1);
 })
 
+homeRouter.post("/invite", controller.inviteUser)
+
 
 
 module.exports = homeRouter

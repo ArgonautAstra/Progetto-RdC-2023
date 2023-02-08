@@ -198,7 +198,7 @@
 	<div id="navbar" class="navbar justify-content-center">
 		<div class="container-fluid">
 			<div class="d-flex justify-content-left align-items-center">
-				<img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = 'index.html'">
+				<img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = '/'">
 		  		<input class="form-control" type="search" placeholder="Search" aria-label="Search">
 				<a class="btn" href="">Ohio#1</a>
 				<a class="btn" href="">Ohio#2</a>
@@ -244,7 +244,7 @@
 					
 			  		<div class="modal-body new">
 						
-						<form action="" method="post">
+						<form action="/invite" method="post">
 							
 							<div class="row">
 								<div class="col-3">
@@ -256,14 +256,15 @@
 							</div>
 								<div class="row">
 								<div class="col-3">
-									<select class="form-select newp" aria-label="Default select example" name="username">
-										<option value="1">First project</option>
-										<option value="2">Second project</option>
-										<option value="2">Third project</option>
-									</select>
+									<select class="form-select newp" aria-label="Default select example" name="projectIndex">
+										<% var userProjects; %>
+										<% for(var i = 0; i < userProjects.length; i++) { %>
+											<option value = <%= i %> ><%= userProjects[i] %></option>
+										<% } %>
+										</select>
 								</div>	
 								<div class="col-6">
-									<input class="newp" type="text" class="form-control" placeholder="..." name="name">
+									<input class="newp" type="text" class="form-control" placeholder="..." name="username">
 								</div>
 							</div>
 							
@@ -305,7 +306,7 @@
 					
 				  		<div class="modal-body new">
 							
-							<form action="" method="post">
+							<form action="/new" method="post">
 							
 								<div class="row">
 									<div class="col-3">
