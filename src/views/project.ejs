@@ -4,15 +4,15 @@
   <title>UNIHub - Project</title>
   <meta charset="utf-8" content="width=device-width, initial-scale=1.0">
 	
-	<link rel="icon" href="img/UNIHub.png">
+	<link rel="icon" href="/img/UNIHub.png">
 
 	<script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js' integrity='sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB' crossorigin='anonymous'></script>
-	<link href="./css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
 
 	<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>
 
-	<script src="./js/bootstrap.min.js"></script>
-	<script src="./js/bootstrap.bundle.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/bootstrap.bundle.min.js"></script>
 	
 </head>
 
@@ -255,7 +255,7 @@
 <div id="navbar" class="navbar justify-content-center">
 	<div class="container-fluid">
 		<div class="d-flex justify-content-left align-items-center">
-			<img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = 'home.html'">
+			<img class="navbar-brand" src="/img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = 'home.html'">
 			<input class="form-control" type="search" placeholder="Search" aria-label="Search">
 			<a class="btn" href="">Push</a>
 			<a class="btn" href="">Pull</a>
@@ -264,10 +264,10 @@
 		</div>
 
 		<div class="d-flex justify-content-right align-items-center">
-			<a class="btn" href=""><img src="img/svg/bell.svg" alt="notify"></a>
+			<a class="btn" href=""><img src="/img/svg/bell.svg" alt="notify"></a>
 
 			<button class="btn btn-sm dropdown-toggle" type="button" id="drop_settings" data-bs-toggle="dropdown" aria-expanded="false">
-				<img class="navbar-brand" src="img/UNIHub2.png" alt="icon" height="40px">
+				<img class="navbar-brand" src="/img/UNIHub2.png" alt="icon" height="40px">
 			</button>
 			<ul class="dropdown-menu" aria-labelledby="drop_settings">
 				<li><a class="dropdown-item" href="#">Action</a></li>
@@ -283,9 +283,9 @@
 <div id="subnavbar" class="navbar">
 	<div class="container-fluid justify-content-between">
 		<div class="d-flex align-items-center">
-			<% var name; %>
-			<a class="path" href="#">Example/of/project/path</a>
-			<button class="visibility">Visibility</button>
+			<% var name; var visibility%>
+			<a class="path" href="#"><%- name %></a>
+			<button class="visibility"><%- visibility %></button>
 		</div>
 
 		<div class="d-flex align-items-center">
@@ -324,14 +324,7 @@
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="d-flex justify-content-start">
-			<a class="btn proj" href="">Something #1</a>
-			<a class="btn proj" href="">Something #2</a>
-			<a class="btn proj" href="">Something #3</a>
-			<a class="btn proj" href="">Something #4</a>
-		</div>
-	</div>
+	
 </div>
 
 <!-- main -->
@@ -341,9 +334,9 @@
 	<!-- project -->
 
 	<div id="dashboard" class="col-sm-9">
+		
 
 		<!-- new project modal-->
-
 		<div class="modal fade" id="new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg">
 
@@ -368,7 +361,7 @@
 							<div class="row">
 								<div class="col-6">
 									<div class="mb-3">
-										<a href="#" style="text-decoration: none; font-size: 20px;">Example/of/project/path/</a>
+										<a href="#" style="text-decoration: none; font-size: 20px;"><%- name %></a>
 										<input class="form-control form-control-sm" id="myFiles" type="file">
 									</div>
 								</div>
@@ -396,7 +389,7 @@
 				</div>
 			</div>
 		</div>
-
+		
 		<form action="#" method="post">
 
 			<div class="container-fluid" align="right">
@@ -404,27 +397,30 @@
 				<a class="btn" data-bs-toggle="modal" data-bs-target="#new">Upload</a>
 				<button class="btn btn-success" type="submit" href="">Download</button>
 			</div>
-
+		</form>
+		<!-- Projects files-->
+		<form action="#" method="post">
 			<!-- current folder-->
 
 			<div class="container-fluid table">
-				<div><a class="btn folder" href="">Current folder</a></div>
-				<div class="d-flex align-items-center file">
-					<input class="form-check-input" type="checkbox" id="gridCheck">
-					<img src="img/svg/folder.svg" class="icon"><a class="btn" href="">Folder #1</a>
-				</div>
-				<div class="d-flex align-items-center file">
-					<input class="form-check-input" type="checkbox" id="gridCheck">
-					<img src="img/svg/folder.svg" class="icon"><a class="btn" href="">Folder #2</a>
-				</div>
-				<div class="d-flex align-items-center file">
-					<input class="form-check-input" type="checkbox" id="gridCheck">
-					<img src="img/svg/doc.svg" class="icon"><a class="btn" href="item.html">File #1</a>
-				</div>
-				<div class="d-flex align-items-center file">
-					<input class="form-check-input" type="checkbox" id="gridCheck">
-					<img src="img/svg/doc.svg" class="icon"><a class="btn" href="item.html">File #2</a>
-				</div>
+				<div> <a class="btn folder" href="">Current folder</a> </div>
+				<% var files %>
+				<% for (var items of files){ %>
+					<%var fileName = items.fileName%>
+					<%var ext = items.ext%>
+					<% if (ext == ""){%>
+						<div class="d-flex align-items-center file">
+								<input class="form-check-input" type="checkbox" id="gridCheck">
+								<img src="/img/svg/folder.svg" class="icon"><a class="btn" href=""> <%- fileName %></a>
+						</div>
+					<%}%>
+					else{
+						<div class="d-flex align-items-center file">
+							<input class="form-check-input" type="checkbox" id="gridCheck">
+							<img src="/img/svg/doc.svg" class="icon"><a class="btn" href=""><%- fileName %></a>
+						</div>
+					}
+				<%}%>
 			</div>
 		</form>
 
@@ -432,14 +428,14 @@
 
 		<div class="container-fluid description">
 			
-			<img src="img/ohio.png" width="100%" height="auto">
+			<img src="/img/ohio.png" width="100%" height="auto">
 		</div>
 	</div>
 
 	<!-- info -->
 
 	<div id="info" class="col-sm-3">
-		<p>pippo</p>
+		<p>info progetto!</p>
 	</div>
 
 </div>

@@ -16,6 +16,7 @@ app.use(express.urlencoded({extended: true}))
 //app.use(multer.array()) // dovrebbe servire per i dati di tipo form-data, ma li gestisce anche express da solo
 app.use("/js", express.static(path.join(__dirname,"bower_components/bootstrap/dist/js")))
 app.use("/css", express.static(path.join(__dirname,"bower_components/bootstrap/dist/css")))
+app.use("/img", express.static(path.join(__dirname,"./public/img/")))
 
 app.set('views', './src/views')
 app.set("view engine", "ejs")

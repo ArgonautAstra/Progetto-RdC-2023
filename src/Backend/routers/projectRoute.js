@@ -10,7 +10,7 @@ const fileExtDB = require("../middleware/fileExtDB")
 
 
 
-projectRouter.get("/", controller.getProject)
+projectRouter.get("/:nameproject", controller.getProject)
 
 projectRouter.post("/upload",
 	fileUpload({createParentPath: true}),
