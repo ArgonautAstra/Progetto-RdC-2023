@@ -356,7 +356,7 @@
 
 					<div class="modal-body new">
 
-						<form id="uploadForm" action="" method="post">
+						<form id="uploadForm" method="post">
 
 							<div class="row">
 								<div class="col-6">
@@ -462,8 +462,8 @@
 		Object.keys(myFiles).forEach(key => {
 			formData.append(myFiles.item(key).name, myFiles.item(key))
 		})
-
-		const response = (await fetch('http://localhost:3000/project/upload', {
+		
+		const response = (await fetch('http://localhost:3000/project/upload/<%- name %>', {
 			method: 'POST',
 			body: formData
 		}))

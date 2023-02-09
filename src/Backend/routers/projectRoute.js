@@ -12,7 +12,7 @@ const fileExtDB = require("../middleware/fileExtDB")
 
 projectRouter.get("/:nameproject", controller.getProject)
 
-projectRouter.post("/upload",
+projectRouter.post("/upload/:nameproject",
 	fileUpload({createParentPath: true}),
 	filesPayloadExists,
 	fileExtLimiter(['.png', '.jpg', '.jpeg']),
