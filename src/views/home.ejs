@@ -35,8 +35,8 @@
 		color: white;
 	}
 	
-	#main { 
-	
+	#main{
+    	height:100vh
 	}
 	
 	#project {
@@ -385,61 +385,24 @@
 		<div id="dashboard" class="col-sm-6">
 			<div class="row menu_dash">
 				<div class="d-flex justify-content-start">
-					<a class="btn proj" href="">Something #1</a>
-					<a class="btn proj" href="">Something #2</a>
+					<p class="btn proj">Project Updates</p>
 				</div>
 			</div>
 			
 			<div class="container">
-				<p class="notify">
-					<img class="navbar-brand" src="img/UNIHub2.png" alt="user_icon" height="50px"  onClick="#">
-					This Ohio User do something of illegal
-				</p>
-				<div class="row notice">
-					Ohio<br>
-					Ohio<br>Ohio<br>
-				</div>
+				<% var updatesStrings; %>
+                <% for(var i = 0; i < updatesStrings.length; i++) { %>				
+					<br>
+					<div class="row notice">
+						<%= updatesStrings[i] %>
+					</div>
+					<br>
+                <% } %>
+
+				
 			</div>
 			
-			<div class="container">
-				<p class="notify">
-					<img class="navbar-brand" src="img/UNIHub2.png" alt="user_icon" height="50px"  onClick="#">
-					This Ohio User do something of illegal
-				</p>
-				<div class="row notice">
-					Ohio<br>Ohio<br>Ohio<br>
-				</div>
-			</div>
 			
-			<div class="container">
-				<p class="notify">
-					<img class="navbar-brand" src="img/UNIHub2.png" alt="user_icon" height="50px"  onClick="#">
-					This Ohio User do something of illegal
-				</p>
-				<div class="row notice">
-					Ohio<br>Ohio<br>Ohio<br>
-				</div>
-			</div>
-			
-			<div class="container">
-				<p class="notify">
-					<img class="navbar-brand" src="img/UNIHub2.png" alt="user_icon" height="50px"  onClick="#">
-					This Ohio User do something of illegal
-				</p>
-				<div class="row notice">
-					Ohio<br>Ohio<br>Ohio<br>
-				</div>
-			</div>
-			
-			<div class="container">
-				<p class="notify">
-					<img class="navbar-brand" src="img/UNIHub2.png" alt="user_icon" height="50px"  onClick="#">
-					This Ohio User do something of illegal
-				</p>
-				<div class="row notice">
-					Ohio<br>Ohio<br>Ohio<br>
-				</div>
-			</div>
 		</div>
 	
 		<!-- info --> 
@@ -453,7 +416,7 @@
 	<!-- footer -->
 	
 	<div id="footer" class="row " align="center">
-		<p><b>Powered by</b>&emsp;Andrea Spinelli, Marco Valenti, Raffaele Terracino</p>
+		<p style ="margin: 0"><b>Powered by</b>&emsp;Andrea Spinelli, Marco Valenti, Raffaele Terracino</p>
 	</div>
 	
 </body>

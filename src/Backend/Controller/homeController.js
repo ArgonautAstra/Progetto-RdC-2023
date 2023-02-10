@@ -9,16 +9,38 @@ const db = new Sequelize(config.db, config.user, config.password, {
     logging: false
 });
 
-const selectProjects = async (user_id) => {
-    const [userProjects, metadata] = await db.query("SELECT P.name FROM ProjectTeam PT INNER JOIN Project P ON PT.projectId = P.projectId WHERE userId="+user_id);
-    return userProjects;
+const selectProjectUpdates = async (userId) => {
+    const queryString = `SELECT p.name, u.username, f.fileName, f.uploadDate, u.username 
+                        FROM ProjectFiles pf INNER JOIN File f ON pf.fileId = f.fileId
+                        INNER JOIN User u ON u.id = f.uploadUser INNER JOIN Project p ON pf.projectId = p.projectId
+                        WHERE p.projectId IN (
+                            SELECT projectId
+                            FROM ProjectTeam pt INNER JOIN User u2 ON pt.userId = u2.id 
+                            WHERE u2.id = ${userId}
+                        )
+                        ORDER BY f.uploadDate DESC`
+
+    const [projectsUpdates, metadata] = await db.query(queryString);
+    return projectsUpdates;
 }
 
 exports.renderHome = async (req, res) => {
+
     const userInfo = JSON.parse(fs.readFileSync(path.join(__dirname + "../../userInfo.json")));
+    
+    const projectsUpdates = await selectProjectUpdates(userInfo.userId);
+
+    const updatesStrings = [];
+
+    for(update of projectsUpdates) {
+        //naive
+        let date = String(update.uploadDate).replace("GMT+0100 (Ora standard dell’Europa centrale)", "")
+        updatesStrings.push(`${update.username} uploaded ${update.fileName} in project ${update.name} at ${date} `)
+    }
 
     res.render("home.ejs", {
-        userProjects: userInfo.projects
+        userProjects: userInfo.projects,
+        updatesStrings: updatesStrings
     });
 
     console.log("OK REDIRECT");
