@@ -36,7 +36,7 @@
 	}
 	
 	#main{
-		height: 100hv;
+		height: 100vh;
 	}
 	
 	#project {
@@ -199,11 +199,7 @@
 		<div class="container-fluid">
 			<div class="d-flex justify-content-left align-items-center">
 				<img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = '/'">
-				
-				<form action = "/search" method = "post">
-		  			<input class="form-control" type="search" name = "searchQuery" placeholder="Search" aria-label="Search">
-				</form>
-				
+		  		<input class="form-control" type="search" placeholder="Search" aria-label="Search">
 				<a class="btn" href="">Ohio#1</a>
 				<a class="btn" href="">Ohio#2</a>
 				<a class="btn" href="">Ohio#3</a>
@@ -260,12 +256,7 @@
 							</div>
 								<div class="row">
 								<div class="col-3">
-									<select class="form-select newp" aria-label="Default select example" name="projectIndex">
-										<% var userProjects; %>
-										<% for(var i = 0; i < userProjects.length; i++) { %>
-											<option value = <%= i %> ><%= userProjects[i] %></option>
-										<% } %>
-										</select>
+									
 								</div>	
 								<div class="col-6">
 									<input class="newp" type="text" class="form-control" placeholder="..." name="username">
@@ -346,11 +337,11 @@
 								<hr>
 
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="visibility" value="false" checked>
+									<input class="form-check-input" type="radio" name="visibility" value="true" checked>
 									Public
 								</div>
 								<div class="form-check">
-									<input class="form-check-input" type="radio" name="visibility" value="true">
+									<input class="form-check-input" type="radio" name="visibility" value="false">
 									Private
 								</div>
 								
@@ -366,13 +357,7 @@
 			</div>
 			
 			<br>
-				<% var userProjects; %>
-                <% for(var i = 0; i < userProjects.length; i++) { %>
-					<a href="/project/<%= userProjects[i] %>">
-						<button class="proj" id="project" type="submit" value="wa" ><%= userProjects[i] %></button>
-					</a>
-                    <br>
-                <% } %>
+				
 			<br>
 			
 			<div class="d-flex justify-content-between align-items-center">
@@ -389,20 +374,22 @@
 		<div id="dashboard" class="col-sm-6">
 			<div class="row menu_dash">
 				<div class="d-flex justify-content-start">
-					<p class="btn proj">Project Updates</p>
+					<p class="btn proj">Search result</p>
 				</div>
 			</div>
 			
 			<div class="container">
-				<% var updatesStrings; %>
-                <% for(var i = 0; i < updatesStrings.length; i++) { %>				
-					<br>
-					<div class="row notice">
-						<%= updatesStrings[i] %>
-					</div>
-					<br>
-                <% } %>
-
+				<br>
+				<div class="row notice">
+					<% var result; %>
+                	<% for(var i = 0; i < result.length; i++) { %>
+						<a href="/project/<%= result[i] %>">
+							<button class="proj" id="project" type="submit" value="wa" ><%= result[i] %></button>
+						</a>
+                    <br>
+                	<% } %>
+				</div>
+				<br>
 				
 			</div>
 			

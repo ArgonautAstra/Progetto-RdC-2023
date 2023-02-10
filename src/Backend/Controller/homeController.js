@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize");
+const { Sequelize, QueryTypes } = require("sequelize");
 const config = require('../db/config.json')
 const fs = require('fs')
 const path = require('path');
@@ -50,7 +50,7 @@ exports.createProject = async(req, res)  => {
     //lettura id utente e inserimento in projectTeams
     const userInfo = JSON.parse(fs.readFileSync(path.join(__dirname + "../../userInfo.json")));
 
-    await db.query("INSERT INTO Project(name, visibility, description) VALUES(\'" + req.body.name + "\'," + req.body.visibility + ",\'"+req.body.description +"\')")
+    await db.query("INSERT INTO Project(name, visibility, descritipion) VALUES(\'" + req.body.name + "\'," + req.body.visibility + ",\'"+req.body.description +"\')")
         .then(res => db.query("INSERT INTO ProjectTeam(projectId, userId, role) VALUES(" + res[0] +"," + userInfo.userId + ", \'Owner\' )"))
         .catch(err => console.log(err));
 
@@ -74,4 +74,18 @@ exports.inviteUser = async(req, res) => {
     }
     res.redirect('/home')
 
+}
+
+exports.searchProjects = async (req, res) => {
+    const [projectsQuery, metadata] = await db.query(`SELECT name FROM Project WHERE name LIKE \'${req.body.searchQuery}%\'
+                                                            AND visibility = 0`)
+    .catch(err => console.log(err));
+
+    const result = [];
+
+    projectsQuery.forEach(e => result.push(e.name))
+
+    res.render("search.ejs", {
+        result: result
+    });
 }

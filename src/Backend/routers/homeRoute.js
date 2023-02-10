@@ -13,6 +13,6 @@ homeRouter.post("/new", (req, res) => {
 
 homeRouter.post("/invite", controller.inviteUser)
 
-
+homeRouter.post("/search", controller.searchProjects)
 
 module.exports = homeRouter
