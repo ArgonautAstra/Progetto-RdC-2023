@@ -7,12 +7,14 @@ const indexRoute = require("./src/Backend/routers/indexRoute")
 const homeRoute = require("./src/Backend/routers/homeRoute")
 const loginRoute = require("./src/Backend/routers/loginRoute")
 const projectRoute = require("./src/Backend/routers/projectRoute")
-const itemRoute = require("./src/Backend/routers/itemRoute")
+const itemRoute = require("./src/Backend/routers/itemRoute");
+const cookieParser = require('cookie-parser');
 
 
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}))
+app.use(cookieParser())
 //app.use(multer.array()) // dovrebbe servire per i dati di tipo form-data, ma li gestisce anche express da solo
 app.use("/js", express.static(path.join(__dirname,"bower_components/bootstrap/dist/js")))
 app.use("/css", express.static(path.join(__dirname,"bower_components/bootstrap/dist/css")))

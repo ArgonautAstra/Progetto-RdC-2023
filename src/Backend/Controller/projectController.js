@@ -18,7 +18,7 @@ const db = new Sequelize(config.db, config.user, config.password, {
 
 
 exports.getProject = async (req, res) => {
-	const userInfo = JSON.parse(fs.readFileSync(path.join(__dirname + "../../userInfo.json")));
+	//const userInfo = JSON.parse(fs.readFileSync(path.join(__dirname + "../../userInfo.json")));
 	const name = req.params.nameproject
 	//TODO:controllo se è un progetto accessibili all'utente
 
@@ -58,7 +58,7 @@ exports.getProject = async (req, res) => {
 
 
 exports.uploadFile = async (req, res) => {
-	const userInfo = JSON.parse(fs.readFileSync(path.join(__dirname + "../../userInfo.json")));
+	const userInfo = JSON.parse(req.cookies.userInfo);
 	const nameprog = req.params.nameproject
 	const progId = await db.query("select p.projectId from Project p inner join ProjectTeam pt where binary p.name = $1 and pt.userId = $2 and p.projectId = pt.projectId", {
 		bind: [nameprog, userInfo.userId],

@@ -45,6 +45,7 @@ exports.verifyData = async (req, res) => {
 				res.status(200);
 				
 				let id = query.rows[0].dataValues.id;
+
 				redirectToHome(res, id)
 			}
 		})
@@ -102,6 +103,8 @@ const redirectToHome = async (res, userId) => {
         userId: userId,
         projects: arr
     };
+
+	res.cookie("userInfo", JSON.stringify(userInfo))
 
     fs.writeFileSync(path.join(__dirname + "../../userInfo.json"), JSON.stringify(userInfo));
 

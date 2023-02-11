@@ -22,6 +22,7 @@
 	"dependencies": {
 		"body-parser": "^1.20.1",
 		"bower": "^1.8.14",
+		"cookie-parser": "^1.4.6",
 		"dotenv": "^8.2.0",
 		"dropzone": "^6.0.0-beta.2",
 		"ejs": "^3.1.8",

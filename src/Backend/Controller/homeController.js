@@ -25,9 +25,8 @@ const selectProjectUpdates = async (userId) => {
 }
 
 exports.renderHome = async (req, res) => {
+    const userInfo = JSON.parse(req.cookies.userInfo);
 
-    const userInfo = JSON.parse(fs.readFileSync(path.join(__dirname + "../../userInfo.json")));
-    
     const projectsUpdates = await selectProjectUpdates(userInfo.userId);
 
     const updatesStrings = [];
@@ -48,7 +47,7 @@ exports.renderHome = async (req, res) => {
 
 exports.createProject = async(req, res)  => {
     //lettura id utente e inserimento in projectTeams
-    const userInfo = JSON.parse(fs.readFileSync(path.join(__dirname + "../../userInfo.json")));
+    const userInfo = JSON.parse(req.cookies.userInfo);
 
     await db.query("INSERT INTO Project(name, visibility, descritipion) VALUES(\'" + req.body.name + "\'," + req.body.visibility + ",\'"+req.body.description +"\')")
         .then(res => db.query("INSERT INTO ProjectTeam(projectId, userId, role) VALUES(" + res[0] +"," + userInfo.userId + ", \'Owner\' )"))
@@ -57,12 +56,12 @@ exports.createProject = async(req, res)  => {
     userInfo.projects.push(req.body.name)
     
     //scrittura dei dati aggiornati nel json
-    fs.writeFileSync(path.join(__dirname + "../../userInfo.json"), JSON.stringify(userInfo));
+	res.cookie("userInfo", JSON.stringify(userInfo))
     res.redirect('/home');
 }
 
 exports.inviteUser = async(req, res) => {
-    const userInfo = JSON.parse(fs.readFileSync(path.join(__dirname + "../../userInfo.json")));
+    const userInfo = JSON.parse(req.cookies.userInfo);
     const projectName = userInfo.projects[req.body.projectIndex];
     const userId = await db.query("SELECT id FROM User WHERE username =\'" + req.body.username + "\'").catch(err => console.log(err));
 
