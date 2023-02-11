@@ -106,7 +106,6 @@ const redirectToHome = async (res, userId) => {
 
 	res.cookie("userInfo", JSON.stringify(userInfo))
 
-    fs.writeFileSync(path.join(__dirname + "../../userInfo.json"), JSON.stringify(userInfo));
 
 	res.redirect('/home');
 
