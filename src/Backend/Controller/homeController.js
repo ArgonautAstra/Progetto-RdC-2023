@@ -32,7 +32,6 @@ exports.renderHome = async (req, res) => {
     const updatesStrings = [];
 
     for(update of projectsUpdates) {
-        //naive
         let date = String(update.uploadDate).replace("GMT+0100 (Ora standard dell’Europa centrale)", "")
         updatesStrings.push(`${update.username} uploaded ${update.fileName} in project ${update.name} at ${date} `)
     }
@@ -64,13 +63,22 @@ exports.inviteUser = async(req, res) => {
     const userInfo = JSON.parse(req.cookies.userInfo);
     const projectName = userInfo.projects[req.body.projectIndex];
     const userId = await db.query("SELECT id FROM User WHERE username =\'" + req.body.username + "\'").catch(err => console.log(err));
+    const changeVisibility = req.body.changeVisibility;
 
     if(typeof(userId[0][0]) !== 'undefined') {
+
         const projectId = await db.query("SELECT P.projectId FROM ProjectTeam PT INNER JOIN  Project P WHERE userId = " + userId[0][0].id+ " AND name = \'" + projectName + "\'").catch(err => console.log(err));
 
-        await db.query("INSERT INTO ProjectTeam(projectId, userId, role) VALUES(" + projectId[0][0].projectId +"," + userId[0][0].id + ",\'Collaborator\')")
-            .catch(err => console.log(err));
+        if(projectId[0][0] !== 'undefined') {
+            await db.query("INSERT INTO ProjectTeam(projectId, userId, role) VALUES(" + projectId[0][0].projectId +"," + userId[0][0].id + ",\'Collaborator\')")
+                .catch(err => console.log(err));
+
+            if(changeVisibility) {
+                await db.query(`UPDATE Project SET visibility = 0 WHERE projectId = ${projectId[0][0].projectId}`).catch(err => console.log(err));
+            }
+        }
     }
+
     res.redirect('/home')
 
 }
