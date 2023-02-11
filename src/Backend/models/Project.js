@@ -1,7 +1,12 @@
-const seq = require('../db/Db')
-const { DataTypes } = require('sequelize');
+const { DataTypes, Sequelize} = require('sequelize');
+const config = require("../db/config.json");
 
-const db = seq.getDB();
+const db = new Sequelize(config.db, config.user, config.password, {
+	host: config.host,
+	dialect: "mysql",
+	logging: false,
+	define: { timestamps: false }
+});
 
 
 const project = db.define("Project", {
@@ -30,6 +35,5 @@ const project = db.define("Project", {
 		freezeTableName: true
 	}
 )
-
-
+db.authenticate().then(()=> project.sync())
 module.exports = project;

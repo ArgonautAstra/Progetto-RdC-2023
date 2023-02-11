@@ -1,9 +1,15 @@
-const seq = require('../db/Db');
-const { DataTypes } = require('sequelize');
+
+const { DataTypes, Sequelize} = require('sequelize');
 const file = require('../models/Files')
 const project = require('../models/Project')
+const config = require("../db/config.json");
 
-const db = seq.getDB();
+const db = new Sequelize(config.db, config.user, config.password, {
+	host: config.host,
+	dialect: "mysql",
+	logging: false,
+	define: { timestamps: false }
+});
 
 
 const projectFiles = db.define("ProjectFiles", {
@@ -34,5 +40,5 @@ const projectFiles = db.define("ProjectFiles", {
 		]
 	}
 )
-
+db.authenticate().then(()=> projectFiles.sync())
 module.exports = projectFiles;

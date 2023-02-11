@@ -1,11 +1,18 @@
 const { Sequelize } = require("sequelize");
-const sequelize = require("../db/Db");
+
 const userModel = require("../models/User");
 const homeController = require('../Controller/homeController');
 const fs = require('fs');
 const path = require('path');
+const config = require("../db/config.json");
 
-const db = sequelize.getDB();
+const db = new Sequelize(config.db, config.user, config.password, {
+	host: config.host,
+	dialect: "mysql",
+	logging: false,
+	define: { timestamps: false }
+});
+
 
 exports.renderSignIn = (req, res, status) => {
 	res.render("sign_in", {

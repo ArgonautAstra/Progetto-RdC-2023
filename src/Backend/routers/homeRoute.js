@@ -6,10 +6,7 @@ const controller = require('../Controller/homeController')
 
 homeRouter.get("/home", controller.renderHome)
 
-homeRouter.post("/new", (req, res) => {
-    //console.log(req.body)
-    controller.createProject(req, res, 1);
-})
+homeRouter.post("/new", controller.createProject)
 
 homeRouter.post("/invite", controller.inviteUser)
 

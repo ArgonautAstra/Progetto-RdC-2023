@@ -14,6 +14,13 @@
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/bootstrap.bundle.min.js"></script>
 	
+	<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+	<link
+			rel="stylesheet"
+			href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css"
+			type="text/css"
+	/>
+	
 </head>
 
 <!-- CSS -->
@@ -362,7 +369,7 @@
 								<div class="col-6">
 									<div class="mb-3">
 										<a href="#" style="text-decoration: none; font-size: 20px;"><%- name %></a>
-										<input class="form-control form-control-sm" id="myFiles" type="file">
+										<input class="form-control form-control-sm" id="myFiles" type="file" multiple>
 									</div>
 								</div>
 							</div>
@@ -395,7 +402,7 @@
 			<div class="container-fluid" align="right">
 				<a class="btn" href="">Explore</a>
 				<a class="btn" data-bs-toggle="modal" data-bs-target="#new">Upload</a>
-				<button class="btn btn-success" type="submit" href="">Download</button>
+				<button class="btn btn-success" type="submit" >Download</button>
 			</div>
 		</form>
 		<!-- Projects files-->
@@ -458,6 +465,7 @@
 		const formData = new FormData()
 
 		Object.keys(myFiles).forEach(key => {
+			console.log(key)
 			formData.append(myFiles.item(key).name, myFiles.item(key))
 		})
 		

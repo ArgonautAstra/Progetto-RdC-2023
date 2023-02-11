@@ -1,6 +1,15 @@
 const projectfilesModel = require("../models/ProjectFiles");
 const fileModel = require("../models/Files");
-const db = require("../db/Db").getDB()
+const {Sequelize} = require("sequelize");
+const config = require("../db/config.json");
+
+const db = new Sequelize(config.db, config.user, config.password, {
+	host: config.host,
+	dialect: "mysql",
+	logging: false,
+	define: { timestamps: false }
+});
+
 const fileExtDB = async (req,res,next) =>{
 	const projectid = req.params.projectid
 	const fileid = req.params.fileid

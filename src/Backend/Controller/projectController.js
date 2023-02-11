@@ -3,16 +3,17 @@ const fileModel = require("../models/Files")
 const projectfilesModel = require("../models/ProjectFiles")
 const projectModel = require("../models/Project")
 const projectTeamModel = require("../models/ProjectTeam")
-//const db = require("../db/Db").getDB()
 const fs = require("fs")
 const {Op, Sequelize, QueryTypes} = require("sequelize");
 const config = require("../db/config.json");
 const {isBoolean} = require("validator");
 const {errorFunc} = require("express-fileupload/lib/utilities");
+
 const db = new Sequelize(config.db, config.user, config.password, {
 	host: config.host,
 	dialect: "mysql",
-	logging: false
+	logging: false,
+	define: { timestamps: false }
 });
 
 
