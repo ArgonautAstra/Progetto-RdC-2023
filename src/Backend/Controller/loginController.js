@@ -1,10 +1,10 @@
 const { Sequelize } = require("sequelize");
 
 const userModel = require("../models/User");
-const homeController = require('../Controller/homeController');
 const fs = require('fs');
 const path = require('path');
 const config = require("../db/config.json");
+const md5 = require('md5');
 
 const db = new Sequelize(config.db, config.user, config.password, {
 	host: config.host,
@@ -32,7 +32,7 @@ exports.verifyData = async (req, res) => {
 		.then(() => userModel.findAndCountAll({
 			where: {
 				username: req.body.username,
-				password: req.body.password
+				password: md5(req.body.password)
 			}
 		}))
 		.then(query => {
@@ -64,7 +64,7 @@ exports.insertData = async (req,res) => {
 				surname: req.body.surname,
 				username: req.body.username,
 				email: req.body.email,
-				password: req.body.password
+				password: md5(req.body.password)
 			})
 		).then( query => {
 			console.log("record inserito con successo");
