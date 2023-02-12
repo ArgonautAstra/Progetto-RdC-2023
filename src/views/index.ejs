@@ -114,7 +114,9 @@
 		<div class="container-fluid">
 			<div class="d-flex justify-content-left align-items-center">
 				<img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px onClick="window.location = 'index.html'">
-		  		<input class="form-control" type="search" placeholder="Search" aria-label="Search">
+				<form action = "/search" method = "post">
+					<input class="form-control" type="search" name = "searchQuery" placeholder="Search" aria-label="Search">
+				</form>
 			</div>
 			
 			<div class="d-flex justify-content-right align-items-center">
@@ -131,9 +133,9 @@
 		<!-- body --> 
 
 		<div>
-			<h2>Benvenuto in UniHub</h2>
-			<h2>il sistema di file sharing gratuito</h2>
-			<h5>Sei nuovo? Registrati, o dai un'occhiata ai progetti pubblici</h5>
+			<h2>Welcome to UniHub</h2>
+			<h2>A free fire sharing system</h2>
+			<h5>Sign up, or take a look at public projects</h5>
 		</div>
 		
 	</div>
