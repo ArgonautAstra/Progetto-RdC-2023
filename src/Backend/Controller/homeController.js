@@ -62,21 +62,18 @@ exports.createProject = async(req, res)  => {
 exports.inviteUser = async(req, res) => {
     const userInfo = JSON.parse(req.cookies.userInfo);
     const projectName = userInfo.projects[req.body.projectIndex];
-    const userId = await db.query("SELECT id FROM User WHERE username =\'" + req.body.username + "\'").catch(err => console.log(err));
     const changeVisibility = req.body.changeVisibility;
 
-    if(typeof(userId[0][0]) !== 'undefined') {
+    const projectId = await db.query("SELECT P.projectId FROM ProjectTeam PT INNER JOIN  Project P WHERE userId = " + userInfo.userId + " AND name = \'" + projectName + "\'").catch(err => console.log(err));
+    const userId = await db.query("SELECT id FROM User WHERE username =\'" + req.body.username + "\'").catch(err => console.log(err));
 
-        const projectId = await db.query("SELECT P.projectId FROM ProjectTeam PT INNER JOIN  Project P WHERE userId = " + userId[0][0].id+ " AND name = \'" + projectName + "\'").catch(err => console.log(err));
-
-        if(projectId[0][0] !== 'undefined') {
-            await db.query("INSERT INTO ProjectTeam(projectId, userId, role) VALUES(" + projectId[0][0].projectId +"," + userId[0][0].id + ",\'Collaborator\')")
-                .catch(err => console.log(err));
-
-            if(changeVisibility) {
-                await db.query(`UPDATE Project SET visibility = 0 WHERE projectId = ${projectId[0][0].projectId}`).catch(err => console.log(err));
-            }
+    if(userId[0][0]!== 'undefined' && (projectId[0][0] !== 'undefined')) {
+        await db.query("INSERT INTO ProjectTeam(projectId, userId, role) VALUES(" + projectId[0][0].projectId +"," + userId[0][0].id + ",\'Collaborator\')")
+            .catch(err => console.log(err));
         }
+
+    if(changeVisibility && (projectId[0][0] !== 'undefined')) {
+        await db.query(`UPDATE Project SET visibility = 0 WHERE projectId = ${projectId[0][0].projectId}`).catch(err => console.log(err));
     }
 
     res.redirect('/home')

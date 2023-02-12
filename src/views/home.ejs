@@ -198,7 +198,7 @@
 	<div id="navbar" class="navbar justify-content-center">
 		<div class="container-fluid">
 			<div class="d-flex justify-content-left align-items-center">
-				<img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = '/'">
+				<img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = '/home'">
 				
 				<form action = "/search" method = "post">
 		  			<input class="form-control" type="search" name = "searchQuery" placeholder="Search" aria-label="Search">
@@ -237,12 +237,6 @@
 						<a class="btn" data-bs-dismiss="modal" style="font-size: 22px">×</a>
 			  		</div>
 					
-			  		<div class="modal-body new" style="padding-top: 5px;">
-						A project contains all project files and folders, including the revision history. 
-						Already have a project repository elsewhere?
-						<a href="#">Import project</a>
-			  		</div>
-					
 			  		<div class="modal-body new">
 						
 						<form action="/invite" method="post">
@@ -255,28 +249,28 @@
 									<label class="form-label">User</label>
 								</div>
 							</div>
-								<div class="row">
+
+							<div class="row">
 								<div class="col-3">
 									<select class="form-select newp" aria-label="Default select example" name="projectIndex">
 										<% var userProjects; %>
 										<% for(var i = 0; i < userProjects.length; i++) { %>
 											<option value = <%= i %> ><%= userProjects[i] %></option>
 										<% } %>
-										</select>
+									</select>
 								</div>	
 								<div class="col-6">
 									<input class="newp" type="text" class="form-control" placeholder="..." name="username">
 								</div>
-
-								<div class = "row">
-									<div class="col-3">
-										<label for = "changeVisibilityCb" class="form-label">Make project public</label>
-										<input class="form-check-input" type="checkbox" name="changeVisibility" id = "changeVisibilityCb" style="margin-top: 15px;">
-									</div>	
-
-								</div>
 							</div>
-							
+
+							<hr>
+
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="changeVisibility" value="true">
+								Make project public
+							</div>
+															
 							<hr>
 							
    							<button type="submit" class="btn btn-success">Invite</button>
