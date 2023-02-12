@@ -6,10 +6,13 @@ const filesPayloadExists = require("../middleware/filesPayloadExists")
 const fileSizeLimiter = require("../middleware/fileSizeLimiter")
 const fileExtLimiter = require("../middleware/fileExtLimiter")
 const fileExtDB = require("../middleware/fileExtDB")
+const fileImportZip = require("../middleware/FileImportZip")
 
 
 
 projectRouter.get("/:nameproject", controller.getProject)
+
+projectRouter.post("/:nameproject",controller.downloadProject)
 
 projectRouter.post("/upload/:nameproject",
 	fileUpload({createParentPath: true}),
@@ -18,9 +21,7 @@ projectRouter.post("/upload/:nameproject",
 	fileSizeLimiter,
 	controller.uploadFile)
 
-projectRouter.get("/:projectid/:fileid",
-	fileExtDB,
-	controller.downloadFile)
+projectRouter.post("/import/:nameproject", fileUpload({createParentPath: true}),fileImportZip,controller.importProject)
 
 
 module.exports = projectRouter
