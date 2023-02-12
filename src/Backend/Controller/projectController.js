@@ -10,6 +10,7 @@ const {errorFunc} = require("express-fileupload/lib/utilities");
 const extract = require('extract-zip')
 const fs = require("fs")
 const moment = require("moment");
+const zip = require("express-zip")
 
 const db = new Sequelize(config.db, config.user, config.password, {
 	host: config.host, dialect: "mysql", logging: false, define: {timestamps: false}
