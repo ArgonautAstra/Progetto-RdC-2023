@@ -79,13 +79,10 @@
                 <% var register_status; %>
                 <% if(register_status === 1) { %>
                     <br>
-                    <a name = "login_failed" style = "color: red; font-size: medium;" >Sign up failed: email already in use <br> </a>
+                    <a name = "login_failed" style = "color: red; font-size: medium;" >Registrazione fallita: email già utilizzata da un altro account <br> </a>
                 <% } else if(register_status === 2) { %>
                     <br>
-                    <a name = "login_failed" style = "color: red; font-size: medium;" >Registration failed: username already in use<br> </a>
-                <% } else if(register_status === 3) { %>
-                    <br>
-                    <a name = "login_failed" style = "color: red; font-size: medium;" >Registration failed: passwords don't match<br> </a>
+                    <a name = "login_failed" style = "color: red; font-size: medium;" >Registrazione fallita: username già esistente<br> </a>
                 <% } %>
             </div>
             <h5>Sign up to UNIHub</h5>
@@ -105,11 +102,11 @@
                 </div>
                 <div class="col-12">
                     <label class="form-label">Email</label>
-                    <input type="email" name = "email" class="form-control" required>
+                    <input type="email" name = "email" class="form-control">
                 </div>
                 <div class="col-12">
                     <label class="form-label">Username</label>
-                    <input type="text" name = "username" class="form-control" required >
+                    <input type="text" name = "username" class="form-control">
                 </div>
                 <div class="row">
                     <div class="col-6">

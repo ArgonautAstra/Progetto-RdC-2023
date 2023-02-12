@@ -1,418 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>UNIHub - Home</title>
-    <meta charset="utf-8" content="width=device-width, initial-scale=1.0">
-
-    <link rel="icon" href="img/UNIHub.png">
-
-    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet'
-          integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
-
-    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'
-            integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p'
-            crossorigin='anonymous'></script>
-
-    <script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js'
-            integrity='sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB'
-            crossorigin='anonymous'></script>
-
-    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js'
-            integrity='sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13'
-            crossorigin='anonymous'></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-</head>
+  <title>UNIHub - Home</title>
+  <meta charset="utf-8" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="icon" href="img/UNIHub.png">
+  
+	<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
+		
+	<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>
+		
+	<script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js' integrity='sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB' crossorigin='anonymous'></script>
+		
+	<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js' integrity='sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13' crossorigin='anonymous'></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+</head>	
 
 <!-- CSS -->
-
+	
 <style>
-
-    #navbar {
-        padding: 0;
-        position: sticky;
-        top: 0;
-        background-color: #323232;
-        box-shadow: 2px 0 5px 0 #1F1F1F;
-    }
-
-    #body {
-        background-color: #1F1F1F;
-        overflow-x: hidden;
-        font-size: 14px;
-        color: white;
-    }
-
-    #main {
-        height: 100vh;
-    }
-
-    #project {
-        background-color: #2C2C2C;
-        border-right: 2px solid #323232;
-        padding: 2%;
-    }
-
-    #my_proj {
-        height: 24px;
-        border-radius: 100px;
-        border: 1px solid #323232;
-        background-color: #1F1F1F;
-        color: white;
-    }
-
-    #dashboard {
-        padding: 2%;
-    }
-
-    #info {
-        background-color: #2C2C2C;
-    }
-
-    #footer {
-        background-color: white;
-        color: #1F1F1F;
-    }
-
-    img:hover {
-        cursor: pointer;
-    }
-
-    a img {
-        filter: invert(100%);
-    }
-
-    a img:hover {
-        filter: invert(50%);
-        transition: 0.5s;
-    }
-
-    label {
-        margin-top: 10px;
-    }
-
-    .newp {
-        border: none;
-        border-radius: 25px;
-        height: 24px;
-        margin-top: 3px;
-        margin-bottom: 10px;
-        padding: 0;
-        padding-left: 10px;
-        padding-right: 10px;
-        color: white;
-        font-size: 14px;
-        background-color: #1F1F1F;
-        width: 100%;
-    }
-
-    .newpd {
-        border: none;
-        border-radius: 25px;
-        height: 24px;
-        margin-top: 3px;
-        margin-bottom: 10px;
-        padding: 0;
-        padding-left: 10px;
-        padding-right: 10px;
-        color: white;
-        font-size: 14px;
-        background-color: #1F1F1F;
-        width: 100%;
-    }
-
-    .btn {
-        color: white;
-        font-size: 14px;
-        font-weight: 500;
-    }
-
-    .btn:hover {
-        color: #A0A0A0;
-        transition: 0.5s;
-    }
-
-    .proj {
-        background: none;
-        border: none;
-        padding: 0;
-        padding-bottom: 5px;
-        padding-right: 2%;
-        color: white;
-        font-size: 14px;
-        text-decoration: none;
-    }
-
-    .proj p {
-        margin-bottom: 5px;
-    }
-
-    .proj:hover {
-        color: #A0A0A0;
-        text-decoration: underline;
-        transition: 0.5s
-    }
-
-    .new {
-        background-color: #323232;
-        border: none;
-        border-radius: 10px;
-        color: white;
-    }
-
-    .activity {
-        border: 1px dashed white;
-        border-radius: 10px;
-        padding: 4%;
-        font-size: 12px;
-    }
-
-    .menu_dash {
-        border-bottom: 2px solid #323232;
-    }
-
-    .notify {
-        margin-bottom: 0;
-        margin-top: 20px;
-    }
-
-    .notice {
-        background-color: #2C2C2C;
-        border: 2px solid #323232;
-        border-radius: 10px;
-        padding: 10px;
-    }
-
-    .form-control {
-        height: 24px;
-        border-radius: 100px;
-        border: none;
-    }
-
-    @media screen and (max-width: 600px) {
-        #project {
-            position: inherit;
-        }
-    }
-
+	
+	#navbar {
+		padding: 0;
+		position: sticky;
+		top: 0;
+		background-color: #323232;
+		box-shadow: 2px 0 5px 0 #1F1F1F;
+	}
+	
+	#body {
+		background-color: #1F1F1F;
+		overflow-x: hidden;
+		font-size: 14px;
+		color: white;
+	}
+	
+	#main{
+		height: 100vh;
+	}
+	
+	#project {
+		background-color: #2C2C2C;
+		border-right: 2px solid #323232;
+		padding: 2%;
+	}
+	
+	#my_proj {
+		height: 24px;
+		border-radius: 100px;
+		border: 1px solid #323232;
+		background-color: #1F1F1F;
+		color: white;
+	}
+	
+	#dashboard {
+		padding: 2%;
+	}
+	
+	#info {
+		background-color: #2C2C2C;
+	}
+	
+	#footer {
+		background-color: white;
+		color: #1F1F1F;
+	}
+	
+	img:hover {
+		cursor: pointer;
+	}
+	
+	a img {
+		filter: invert(100%);
+	}
+	
+	a img:hover {
+		filter: invert(50%);
+		transition: 0.5s;
+	}
+	
+	label {
+		margin-top: 10px;
+	}
+	
+	.newp {
+		border: none;
+		border-radius: 25px;
+		height: 24px;
+		margin-top: 3px;
+		margin-bottom: 10px;
+		padding: 0;
+		padding-left: 10px;
+		padding-right: 10px;
+		color: white;
+		font-size: 14px;
+		background-color: #1F1F1F;
+		width: 100%;
+	}
+	
+	.newpd {
+		border: none;
+		border-radius: 25px;
+		height: 24px;
+		margin-top: 3px;
+		margin-bottom: 10px;
+		padding: 0;
+		padding-left: 10px;
+		padding-right: 10px;
+		color: white;
+		font-size: 14px;
+		background-color: #1F1F1F;
+		width: 100%;
+	}
+	
+	.btn { 
+		color: white;
+		font-size: 14px;
+		font-weight: 500;
+	}
+	
+	.btn:hover {
+		color:  #A0A0A0;
+		transition: 0.5s;
+	}
+	
+	.proj {
+		background: none;
+		border: none;
+		padding: 0;
+		padding-bottom: 5px;
+		padding-right: 2%;
+		color: white;
+		font-size: 14px;
+		text-decoration: none;
+	}
+	
+	.proj p{
+		margin-bottom: 5px;
+	}
+	
+	.proj:hover {
+		color:  #A0A0A0;
+		text-decoration: underline;
+		transition: 0.5s
+	}
+	
+	.new{
+		background-color: #323232;
+		border: none;
+		border-radius: 10px;
+		color: white;
+	}
+	
+	.activity {
+		border: 1px dashed white;
+		border-radius: 10px;
+		padding: 4%;
+		font-size: 12px;
+	}
+	
+	.menu_dash {
+		border-bottom: 2px solid #323232;
+	}
+	
+	.notify {
+		margin-bottom: 0;
+		margin-top: 20px;
+	}
+	
+	.notice {
+		background-color: #2C2C2C;
+		border: 2px solid #323232;
+		border-radius: 10px;
+		padding: 10px;
+	}
+	
+	.form-control {
+		height: 24px;
+		border-radius: 100px;
+		border: none;
+	}
+	
+	@media screen and (max-width: 600px) {
+		#project {
+			position: inherit;
+		}
+	}
+	
 </style>
+	
+<!-- body --> 
+	
+<body id="body"> 
+	
+	<!-- navbar -->
+	
+	<div id="navbar" class="navbar justify-content-center">
+		<div class="container-fluid">
+			<div class="d-flex justify-content-left align-items-center">
+				<img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = '/'">
+				
+				<form action = "/search" method = "post">
+		  			<input class="form-control" type="search" name = "searchQuery" placeholder="Search" aria-label="Search">
+				</form>
+				
+				<a class="btn" href="" data-bs-toggle="modal" data-bs-target="#invite">Invite</a>
+			</div>
+			
+			<div class="d-flex justify-content-right align-items-center">
+				<a class="btn" href=""><img src="img/svg/bell.svg" alt="notify"></a>
+				
+					<button class="btn btn-sm dropdown-toggle" type="button" id="drop_settings" data-bs-toggle="dropdown" aria-expanded="false">
+						<img class="navbar-brand" src="img/UNIHub2.png" alt="icon" height="40px">
+				  	</button>
+				  	<ul class="dropdown-menu" aria-labelledby="drop_settings">
+						<li><a class="dropdown-item" href="#">Action</a></li>
+						<li><a class="dropdown-item" href="#">Another action</a></li>
+						<li><a class="dropdown-item" href="#">Something else here</a></li>
+				  	</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!-- main -->
+	
+	<div id="main" class="row">
+		
+		<!-- invite modal--> 
+			
+		<div class="modal fade" id="invite" tabindex="0" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  	<div class="modal-dialog modal-lg">
+				  
+				<div class="modal-content new">
+			  		<div class="modal-header new" style="padding-bottom: 5px;">
+						<h5 class="modal-title" id="exampleModalLabel">Invite a collaborator</h5>
+						<a class="btn" data-bs-dismiss="modal" style="font-size: 22px">×</a>
+			  		</div>
+					
+			  		<div class="modal-body new" style="padding-top: 5px;">
+						A project contains all project files and folders, including the revision history. 
+						Already have a project repository elsewhere?
+						<a href="#">Import project</a>
+			  		</div>
+					
+			  		<div class="modal-body new">
+						
+						<form action="/invite" method="post">
+							
+							<div class="row">
+								<div class="col-3">
+									<label class="form-label">Project</label>
+								</div>	
+								<div class="col-6">
+									<label class="form-label">User</label>
+								</div>
+							</div>
+								<div class="row">
+								<div class="col-3">
+									<select class="form-select newp" aria-label="Default select example" name="projectIndex">
+										<% var userProjects; %>
+										<% for(var i = 0; i < userProjects.length; i++) { %>
+											<option value = <%= i %> ><%= userProjects[i] %></option>
+										<% } %>
+										</select>
+								</div>	
+								<div class="col-6">
+									<input class="newp" type="text" class="form-control" placeholder="..." name="username">
+								</div>
 
-<!-- body -->
+								<div class = "row">
+									<div class="col-3">
+										<label for = "changeVisibilityCb" class="form-label">Make project public</label>
+										<input class="form-check-input" type="checkbox" name="changeVisibility" id = "changeVisibilityCb" style="margin-top: 15px;">
+									</div>	
 
-<body id="body">
+								</div>
+							</div>
+							
+							<hr>
+							
+   							<button type="submit" class="btn btn-success">Invite</button>
+								
+						</form>
+						
+					</div>
+				</div>
+		  	</div>
+		</div>
+	
+		<!-- project list --> 
 
-<!-- navbar -->
+		<div id="project" class="col-sm-3">
+			<div class="d-flex justify-content-between align-items-center">
+				<p style="margin: 0"><b>Project list</b></p>
+				<a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#new">New project</a>
+			</div>
+			
+			<div class="modal fade" id="new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  	<div class="modal-dialog modal-lg">
+	
+					<!-- new project modal--> 
+				  
+					<div class="modal-content new">
+				  		<div class="modal-header new" style="padding-bottom: 5px;">
+							<h5 class="modal-title" id="exampleModalLabel">Create new project</h5>
+							<a class="btn" data-bs-dismiss="modal" style="font-size: 22px">×</a>
+				  		</div>
+					
+				  		<div class="modal-body new">
+							
+							<form action="/new" method="post">
+							
+								<div class="row">
+									<div class="col-6">
+										<label class="form-label">Project name *</label>
+									</div>
+								</div>
 
-<div id="navbar" class="navbar justify-content-center">
-    <div class="container-fluid">
-        <div class="d-flex justify-content-left align-items-center">
-            <img class="navbar-brand" src="img/UNIHub2.png" alt="logo" height="50px"
-                 onClick="window.location = '/home'">
+								<div class="row">
+									
+									<div class="col-6">
+										<input class="newp" type="text" class="form-control" placeholder="..." name="name">
+									</div>
+								</div>
 
-            <form action="/search" method="post">
-                <input class="form-control" type="search" name="searchQuery" placeholder="Search" aria-label="Search">
-            </form>
+								<div class="row">
+									<div class="col-12">
+										<label class="form-label">Description</label>
+									</div>	
+									<div class="col-12">
+										<textarea class="form newpd" placeholder="..." name="description"></textarea>
+									</div>
+								</div>
 
-            <a class="btn" href="" data-bs-toggle="modal" data-bs-target="#invite">Invite</a>
-        </div>
+								<hr>
 
-        <div class="d-flex justify-content-right align-items-center">
-            <a class="btn" href=""><img src="img/svg/bell.svg" alt="notify"></a>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="visibility" value="false" checked>
+									Public
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="visibility" value="true">
+									Private
+								</div>
+								
+								<hr>
+								
+    							<button type="submit" class="btn btn-success">Create</button>
+								
+							</form>
+							
+						</div>
+					</div>
+			  	</div>
+			</div>
+			
+			<br>
+				<% var userProjects; %>
+                <% for(var i = 0; i < userProjects.length; i++) { %>
+					<a href="/project/<%= userProjects[i] %>">
+						<button class="proj" id="project" type="submit" value="wa" ><%= userProjects[i] %></button>
+					</a>
+                    <br>
+                <% } %>
+			<br>
+		</div>
 
-            <button class="btn btn-sm dropdown-toggle" type="button" id="drop_settings" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                <img class="navbar-brand" src="img/UNIHub2.png" alt="icon" height="40px">
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="drop_settings">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+		<!-- dashboard --> 
+		
+		<div id="dashboard" class="col-sm-6">
+			<div class="row menu_dash">
+				<div class="d-flex justify-content-start">
+					<p class="btn proj">Project Updates</p>
+				</div>
+			</div>
+			
+			<div class="container">
+				<% var updatesStrings; %>
+                <% for(var i = 0; i < updatesStrings.length; i++) { %>				
+					<br>
+					<div class="row notice">
+						<%= updatesStrings[i] %>
+					</div>
+					<br>
+                <% } %>
 
-<!-- main -->
+				
+			</div>
+			
+			
+		</div>
+	
+		<!-- info --> 
 
-<div id="main" class="row">
-
-    <!-- invite modal-->
-
-    <div class="modal fade" id="invite" tabindex="0" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-
-            <div class="modal-content new">
-                <div class="modal-header new" style="padding-bottom: 5px;">
-                    <h5 class="modal-title" id="exampleModalLabel">Invite a collaborator</h5>
-                    <a class="btn" data-bs-dismiss="modal" style="font-size: 22px">×</a>
-                </div>
-
-
-                <div class="modal-body new">
-
-                    <form action="/invite" method="post">
-
-                        <div class="row">
-                            <div class="col-3">
-                                <label class="form-label">Project</label>
-                            </div>
-                            <div class="col-6">
-                                <label class="form-label">User</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <select class="form-select newp" aria-label="Default select example"
-                                        name="projectIndex">
-                                    <% var userProjects; %>
-                                    <% for(var i = 0; i < userProjects.length; i++) { %>
-                                        <option value= <%= i %>><%= userProjects[i] %></option>
-                                    <% } %>
-                                </select>
-                            </div>
-                            <div class="col-6">
-                                <input class="newp" type="text" class="form-control" placeholder="..." name="username">
-                            </div>
-                        </div>
-
-                            <hr>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="changeVisibility" value="true">
-                                Make project public
-                            </div>
-                            
-
-                            <hr>
-
-                            <button type="submit" class="btn btn-success">Invite</button>
-
-                    </form>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- project list -->
-
-    <div id="project" class="col-sm-3">
-        <div class="d-flex justify-content-between align-items-center">
-            <p style="margin: 0"><b>Project list</b></p>
-            <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#new">New project</a>
-        </div>
-
-        <div class="modal fade" id="new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-
-                <!-- new project modal-->
-
-                <div class="modal-content new">
-                    <div class="modal-header new" style="padding-bottom: 5px;">
-                        <h5 class="modal-title" id="exampleModalLabel">Create new project</h5>
-                        <a class="btn" data-bs-dismiss="modal" style="font-size: 22px">×</a>
-                    </div>
-
-                    <div class="modal-body new">
-
-                        <form action="/new" method="post">
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <label class="form-label">Project name *</label>
-                                </div>
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col-6">
-                                    <input class="newp" type="text" class="form-control" placeholder="..." name="name">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <label class="form-label">Description</label>
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form newpd" placeholder="..." name="description"></textarea>
-                                </div>
-                            </div>
-
-                            <hr>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="visibility" value="false" checked>
-                                Public
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="visibility" value="true">
-                                Private
-                            </div>
-
-                            <hr>
-
-                            <button type="submit" class="btn btn-success">Create</button>
-
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <br>
-        <% var userProjects; %>
-        <% for(var i = 0; i < userProjects.length; i++) { %>
-            <a href="/project/<%= userProjects[i] %>">
-                <button class="proj" id="project" type="submit" value="wa"><%= userProjects[i] %></button>
-            </a>
-            <br>
-        <% } %>
-        <br>
-    </div>
-
-    <!-- dashboard -->
-
-    <div id="dashboard" class="col-sm-6">
-        <div class="row menu_dash">
-            <div class="d-flex justify-content-start">
-                <p class="btn proj">Project Updates</p>
-            </div>
-        </div>
-
-        <div class="container">
-            <% var updatesStrings; %>
-            <% for(var i = 0; i < updatesStrings.length; i++) { %>
-                <br>
-                <div class="row notice">
-                    <%= updatesStrings[i] %>
-                </div>
-                <br>
-            <% } %>
-
-        </div>
-
-
-    </div>
-
-    <!-- info -->
-
-    <div id="info" class="col-sm-3">
-
-    </div>
-
-</div>
-
-<!-- footer -->
-
-<div id="footer" class="row " align="center">
-    <p style="margin: 0"><b>Powered by</b>&emsp;Andrea Spinelli, Marco Valenti, Raffaele Terracino</p>
-</div>
-
+		<div id="info" class="col-sm-3">
+				
+		</div>
+		
+	</div>
+	
+	<!-- footer -->
+	
+	<div id="footer" class="row " align="center">
+		<p style ="margin: 0"><b>Powered by</b>&emsp;Andrea Spinelli, Marco Valenti, Raffaele Terracino</p>
+	</div>
+	
 </body>
-
-<!-- script -->
-
+	
+<!-- script --> 
+	
 <script>
 </script>
-
+	
 </html>

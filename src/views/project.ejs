@@ -1,259 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>UNIHub - Project</title>
-    <meta charset="utf-8" content="width=device-width, initial-scale=1.0">
+  <title>UNIHub - Project</title>
+  <meta charset="utf-8" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="icon" href="/img/UNIHub.png">
 
-    <link rel="icon" href="/img/UNIHub.png">
+	<script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js' integrity='sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB' crossorigin='anonymous'></script>
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js'
-            integrity='sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB'
-            crossorigin='anonymous'></script>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+	<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></script>
 
-    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'
-            integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p'
-            crossorigin='anonymous'></script>
-
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
-
-    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-    <link
-            rel="stylesheet"
-            href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css"
-            type="text/css"
-    />
-
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/bootstrap.bundle.min.js"></script>
+	
+	<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+	<link
+			rel="stylesheet"
+			href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css"
+			type="text/css"
+	/>
+	
 </head>
 
 <!-- CSS -->
 
 <style>
 
-    #navbar {
-        padding: 0;
-        position: sticky;
-        top: 0;
-        z-index: 2;
-        background-color: #323232;
-        box-shadow: 2px 0 5px 0 #1F1F1F;
-    }
+	#navbar {
+		padding: 0;
+		position: sticky;
+		top: 0;
+		z-index: 2;
+		background-color: #323232;
+		box-shadow: 2px 0 5px 0 #1F1F1F;
+	}
 
-    #subnavbar {
-        padding: 10px;
-        border-bottom: 2px solid #323232;
-    }
+	#subnavbar {
+		padding: 10px;
+		border-bottom: 2px solid #323232;
+	}
 
-    #body {
-        background-color: #1F1F1F;
-        overflow-x: hidden;
-        font-size: 14px;
-        color: white;
-    }
+	#body {
+		background-color: #1F1F1F;
+		overflow-x: hidden;
+		font-size: 14px;
+		color: white;
+	}
 
-    #main {
-        height: 100vh;
-    }
+	#main {
+		height: 100vh;
+	}
 
-    #project {
-        background-color: #2C2C2C;
-        border-right: 2px solid #323232;
-        padding: 2%;
-    }
+	#project {
+		background-color: #2C2C2C;
+		border-right: 2px solid #323232;
+		padding: 2%;
+	}
 
-    #my_proj {
-        height: 24px;
-        border-radius: 100px;
-        border: 1px solid #323232;
-        background-color: #1F1F1F;
-        color: white;
-    }
+	#my_proj {
+		height: 24px;
+		border-radius: 100px;
+		border: 1px solid #323232;
+		background-color: #1F1F1F;
+		color: white;
+	}
 
-    #dashboard {
-        padding: 4%;
-    }
+	#dashboard {
+		padding: 4%;
+	}
 
-    #formFileSm {
-        margin-top: 10px;
-    }
+	#formFileSm {
+		margin-top: 10px;
+	}
 
-    #info {
-        background-color: #2C2C2C;
-    }
+	#info {
+		background-color: #2C2C2C;
+	}
 
-    #footer {
-        background-color: white;
-        color: #1F1F1F;
-    }
+	#footer {
+		background-color: white;
+		color: #1F1F1F;
+	}
 
-    img:hover {
-        cursor: pointer;
-    }
+	img:hover {
+		cursor: pointer;
+	}
 
-    a img {
-        filter: invert(100%);
-    }
+	a img {
+		filter: invert(100%);
+	}
 
-    a img:hover {
-        filter: invert(50%);
-        transition: 0.5s;
-    }
+	a img:hover {
+		filter: invert(50%);
+		transition: 0.5s;
+	}
 
-    .newp {
-        border: none;
-        border-radius: 25px;
-        height: 24px;
-        margin-top: 3px;
-        margin-bottom: 10px;
-        padding: 0;
-        padding-left: 10px;
-        padding-righ: 10px;
-        color: white;
-        font-size: 14px;
-        background-color: #1F1F1F;
-        width: 100%;
-    }
+	.newp {
+		border: none;
+		border-radius: 25px;
+		height: 24px;
+		margin-top: 3px;
+		margin-bottom: 10px;
+		padding: 0;
+		padding-left: 10px;
+		padding-righ: 10px;
+		color: white;
+		font-size: 14px;
+		background-color: #1F1F1F;
+		width: 100%;
+	}
 
-    .newpd {
-        border: none;
-        border-radius: 15px;
-        height: 100px;
-        margin-top: 3px;
-        margin-bottom: 10px;
-        padding: 0;
-        padding-left: 10px;
-        padding-righ: 10px;
-        color: white;
-        font-size: 14px;
-        background-color: #1F1F1F;
-        width: 100%;
-    }
+	.newpd {
+		border: none;
+		border-radius: 15px;
+		height: 100px;
+		margin-top: 3px;
+		margin-bottom: 10px;
+		padding: 0;
+		padding-left: 10px;
+		padding-righ: 10px;
+		color: white;
+		font-size: 14px;
+		background-color: #1F1F1F;
+		width: 100%;
+	}
 
-    .btn {
-        color: white;
-        font-size: 14px;
-        font-weight: 500;
-    }
+	.btn {
+		color: white;
+		font-size: 14px;
+		font-weight: 500;
+	}
 
-    .btn:hover {
-        color: #A0A0A0;
-        transition: 0.5s;
-    }
+	.btn:hover {
+		color:  #A0A0A0;
+		transition: 0.5s;
+	}
 
-    .proj {
-        color: white;
-        font-size: 14px;
-        text-decoration: none;
-    }
+	.proj {
+		color: white;
+		font-size: 14px;
+		text-decoration: none;
+	}
 
-    .proj p {
-        margin-bottom: 5px;
-    }
+	.proj p{
+		margin-bottom: 5px;
+	}
 
-    .proj:hover {
-        color: #A0A0A0;
-        text-decoration: underline;
-        transition: 0.5s
-    }
+	.proj:hover {
+		color:  #A0A0A0;
+		text-decoration: underline;
+		transition: 0.5s
+	}
 
-    .new {
-        background-color: #323232;
-        border: none;
-        border-radius: 10px;
-        color: white;
-    }
+	.new{
+		background-color: #323232;
+		border: none;
+		border-radius: 10px;
+		color: white;
+	}
 
-    .path {
-        font-size: 24px;
-        text-decoration: none;
-    }
+	.path {
+		font-size: 24px;
+		text-decoration: none;
+	}
 
-    .visibility {
-        margin-left: 10px;
-        border-radius: 25px;
-        border: 2px solid #A0A0A0;
-        background: none;
-        font-size: 12px;
-        text-decoration: none;
-        color: #A0A0A0;
-    }
+	.visibility {
+		margin-left: 10px;
+		border-radius: 25px;
+		border: 2px solid #A0A0A0;
+		background: none;
+		font-size: 12px;
+		text-decoration: none;
+		color: #A0A0A0;
+	}
 
-    .activity {
-        border: 1px dashed white;
-        border-radius: 10px;
-        padding: 4%;
-        font-size: 12px;
-    }
+	.activity {
+		border: 1px dashed white;
+		border-radius: 10px;
+		padding: 4%;
+		font-size: 12px;
+	}
 
-    .sub {
-        border-radius: 10px;
-        border: 2px solid #A0A0A0;
-        color: #A0A0A0;
-        font-size: 12px;
-        margin-left: 10px;
-    }
+	.sub {
+		border-radius: 10px;
+		border: 2px solid #A0A0A0;
+		color: #A0A0A0;
+		font-size: 12px;
+		margin-left: 10px;
+	}
 
-    .menu_dash {
-        border-bottom: 2px solid #323232;
-    }
+	.menu_dash {
+		border-bottom: 2px solid #323232;
+	}
 
-    .notify {
-        margin-bottom: 0;
-        margin-top: 20px;
-    }
+	.notify {
+		margin-bottom: 0;
+		margin-top: 20px;
+	}
 
-    .notice {
-        background-color: #2C2C2C;
-        border: 2px solid #323232;
-        border-radius: 10px;
-        padding: 10px;
-    }
+	.notice {
+		background-color: #2C2C2C;
+		border: 2px solid #323232;
+		border-radius: 10px;
+		padding: 10px;
+	}
 
-    .table {
-        border-radius: 10px;
-        border: 1px solid #A0A0A0;
-        padding: 0;
-        margin-top: 10px;
-    }
+	.table {
+		border-radius: 10px;
+		border: 1px solid #A0A0A0;
+		padding: 0;
+		margin-top: 10px;
+	}
 
-    .folder {
-        background-color: #323232;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        font-size: 18px;
-        width: 100%;
-        text-align: left;
-    }
+	.folder {
+		background-color: #323232;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		font-size: 18px;
+		width: 100%;
+		text-align: left;
+	}
 
-    .file {
-        padding-left: 10px;
-    }
+	.file{
+		padding-left: 10px;
+	}
 
-    .icon {
-        height: 20px;
-        filter: invert(100%);
-        margin-left: 10px;
-    }
+	.icon {
+		height: 20px;
+		filter: invert(100%);
+		margin-left: 10px;
+	}
 
-    .description {
-        border-radius: 10px;
-        border: 1px solid #A0A0A0;
-        padding: 20px;
-        margin-top: 10px;
-    }
+	.description{
+		border-radius: 10px;
+		border: 1px solid #A0A0A0;
+		padding: 20px;
+		margin-top: 10px;
+	}
 
-    .form-control {
-        height: 24px;
-        border-radius: 100px;
-        border: none;
-    }
+	.form-control {
+		height: 24px;
+		border-radius: 100px;
+		border: none;
+	}
 
-    @media screen and (max-width: 600px) {
-        #project {
-            position: inherit;
-        }
-    }
+	@media screen and (max-width: 600px) {
+		#project {
+			position: inherit;
+		}
+	}
 
 </style>
 
@@ -264,244 +260,202 @@
 <!-- navbar -->
 
 <div id="navbar" class="navbar justify-content-center">
-    <div class="container-fluid">
-        <div class="d-flex justify-content-left align-items-center">
-            <img class="navbar-brand" src="/img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = '/home'">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-            <a class="btn" href="">Push</a>
-            <a class="btn" href="">Pull</a>
-            <a class="btn" href="">Explore</a>
-        </div>
+	<div class="container-fluid">
+		<div class="d-flex justify-content-left align-items-center">
+			<img class="navbar-brand" src="/img/UNIHub2.png" alt="logo" height="50px"  onClick="window.location = 'home.html'">
+			<input class="form-control" type="search" placeholder="Search" aria-label="Search">
+			<a class="btn" href="">Push</a>
+			<a class="btn" href="">Pull</a>
+			<a class="btn" href="">Explore</a>
+		</div>
 
-        <div class="d-flex justify-content-right align-items-center">
-            <a class="btn" href=""><img src="/img/svg/bell.svg" alt="notify"></a>
+		<div class="d-flex justify-content-right align-items-center">
+			<a class="btn" href=""><img src="/img/svg/bell.svg" alt="notify"></a>
 
-            <button class="btn btn-sm dropdown-toggle" type="button" id="drop_settings" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                <img class="navbar-brand" src="/img/UNIHub2.png" alt="icon" height="40px">
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="drop_settings">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </div>
-    </div>
+			<button class="btn btn-sm dropdown-toggle" type="button" id="drop_settings" data-bs-toggle="dropdown" aria-expanded="false">
+				<img class="navbar-brand" src="/img/UNIHub2.png" alt="icon" height="40px">
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="drop_settings">
+				<li><a class="dropdown-item" href="#">Action</a></li>
+				<li><a class="dropdown-item" href="#">Another action</a></li>
+				<li><a class="dropdown-item" href="#">Something else here</a></li>
+			</ul>
+		</div>
+	</div>
 </div>
 
 <!-- subnavbar -->
 
 <div id="subnavbar" class="navbar">
-    <div class="container-fluid justify-content-between">
-        <div class="d-flex align-items-center">
-            <% var name; var visibility %>
-            <a class="path" href="#"><%- name %></a>
-            <button class="visibility"><%- visibility %></button>
-        </div>
+	<div class="container-fluid justify-content-between">
+		<div class="d-flex align-items-center">
+			<% var name; var visibility%>
+			<a class="path" href="#"><%- name %></a>
+			<button class="visibility"><%- visibility %></button>
+		</div>
 
-        <div class="d-flex align-items-center">
-            <div class="dropdown">
-                <a class="btn dropdown-toggle sub" href="#" role="button" id="dropdownMenuLink"
-                   data-bs-toggle="dropdown" aria-expanded="false">
-                    Option #1
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Action 1.1</a></li>
-                    <li><a class="dropdown-item" href="#">Action 1.2</a></li>
-                    <li><a class="dropdown-item" href="#">Action 1.3</a></li>
-                </ul>
-            </div>
+		<div class="d-flex align-items-center">
+			<div class="dropdown">
+				<a class="btn dropdown-toggle sub" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+					Option #1
+				</a>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+					<li><a class="dropdown-item" href="#">Action 1.1</a></li>
+					<li><a class="dropdown-item" href="#">Action 1.2</a></li>
+					<li><a class="dropdown-item" href="#">Action 1.3</a></li>
+				</ul>
+			</div>
 
-            <div class="dropdown">
-                <a class="btn dropdown-toggle sub" href="#" role="button" id="dropdownMenuLink"
-                   data-bs-toggle="dropdown" aria-expanded="false">
-                    Option #2
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Action 2.1</a></li>
-                    <li><a class="dropdown-item" href="#">Action 2.2</a></li>
-                    <li><a class="dropdown-item" href="#">Action 2.3</a></li>
-                </ul>
-            </div>
+			<div class="dropdown">
+				<a class="btn dropdown-toggle sub" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+					Option #2
+				</a>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+					<li><a class="dropdown-item" href="#">Action 2.1</a></li>
+					<li><a class="dropdown-item" href="#">Action 2.2</a></li>
+					<li><a class="dropdown-item" href="#">Action 2.3</a></li>
+				</ul>
+			</div>
 
-            <div class="dropdown">
-                <a class="btn dropdown-toggle sub" href="#" role="button" id="dropdownMenuLink"
-                   data-bs-toggle="dropdown" aria-expanded="false">
-                    Option #3
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Action 3.1</a></li>
-                    <li><a class="dropdown-item" href="#">Action 3.2</a></li>
-                    <li><a class="dropdown-item" href="#">Action 3.3</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+			<div class="dropdown">
+				<a class="btn dropdown-toggle sub" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+					Option #3
+				</a>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+					<li><a class="dropdown-item" href="#">Action 3.1</a></li>
+					<li><a class="dropdown-item" href="#">Action 3.2</a></li>
+					<li><a class="dropdown-item" href="#">Action 3.3</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 
-
+	
 </div>
 
 <!-- main -->
 
 <div id="main" class="row">
 
-    <!-- project -->
+	<!-- project -->
 
-    <div id="dashboard" class="col-sm-9">
-
-
-        <!-- new project modal-->
-        <div class="modal fade" id="new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-
-                <!-- new project modal-->
-                <div class="modal-content new">
-                    <div class="modal-header new" style="padding-bottom: 5px;">
-                        <h5 class="modal-title" id="exampleModalLabel">Add new file</h5>
-                        <a class="btn" data-bs-dismiss="modal" style="font-size: 22px">×</a>
-                    </div>
-
-                    <div class="modal-body new" style="padding-top: 5px;">
-                        A project contains all project files and folders, including the revision history.
-                        Already have a project repository elsewhere?
-                    </div>
-
-                    <div class="modal-body new">
-
-                        <form id="uploadForm" method="post">
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="mb-3">
-                                        <a href="#" style="text-decoration: none; font-size: 20px;"><%- name %></a>
-                                        <input class="form-control form-control-sm" id="myFiles" type="file" multiple>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <label class="form-label">Upload changes</label>
-                                </div>
-                                <div class="col-12">
-                                    <input type="text" class="form-control newp" placeholder="Add file via upload"
-                                           name="title"></input>
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form newpd" placeholder="Add an optional extended descrtption"
-                                              name="description"></textarea>
-                                </div>
-                            </div>
-
-                            <hr>
-
-                            <button type="submit" class="btn btn-success">Upload</button>
-
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- import Project modal-->
-        <div class="modal fade" id="import" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-
-                <!-- new project modal-->
-                <div class="modal-content new">
-                    <div class="modal-header new" style="padding-bottom: 5px;">
-                        <h5 class="modal-title" id="exampleModalLabel">Add new file</h5>
-                        <a class="btn" data-bs-dismiss="modal" style="font-size: 22px">×</a>
-                    </div>
-
-                    <div class="modal-body new" style="padding-top: 5px;">
-                        Already have a project repository elsewhere?
-                        Import a zip File!
-                    </div>
-
-                    <div class="modal-body new">
-
-                        <form id="importForm" method="get">
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="mb-3">
-                                        <a href="#" style="text-decoration: none; font-size: 20px;"><%- name %></a>
-                                        <input class="form-control form-control-sm" id="projectFiles" type="file" accept="application/zip">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <hr>
-
-                            <button type="submit" class="btn btn-success">Import</button>
-
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+	<div id="dashboard" class="col-sm-9">
 		
-        <div class="container-fluid" align="right">
-            <a class="btn" data-bs-toggle="modal" data-bs-target="#import">Import</a>
-            <a class="btn" data-bs-toggle="modal" data-bs-target="#new">Upload</a>
-            <button class="btn btn-success" type="submit" form="content">Download</button>
-        </div>
-        <!-- Projects files-->
-        <form id="content" action="#" method="post">
-            <!-- current folder-->
 
-            <div class="container-fluid table">
-                <div><a class="btn folder" href="">Current folder</a></div>
-                <% var files %>
-                <% for (var items of files){ %>
-                    <% var fileName = items.fileName %>
-                    <% var ext = items.ext %>
-                    <% var fileId = items.fileId %>
-                    <% if (ext == ""){ %>
-                        <div class="d-flex align-items-center file">
-                            <input class="form-check-input" type="checkbox" id="gridCheck" name="gridcheck" value="<%- fileId %>">
-                            <img src="/img/svg/folder.svg" class="icon"><a class="btn" href=""> <%- fileName %></a>
-                        </div>
-                    <% }else{ %>
-                        <div class="d-flex align-items-center file">
-                            <input class="form-check-input" type="checkbox" id="gridCheck" name="gridcheck" value="<%- fileId %>">
-                            <img src="/img/svg/doc.svg" class="icon"><a class="btn" href=""><%- fileName %></a>
-                        </div>
-                    <% } %>
-                <% } %>
-            </div>
-        </form>
+		<!-- new project modal-->
+		<div class="modal fade" id="new" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
 
-        <!-- project description-->
+				<!-- new project modal-->
 
-        <div class="container-fluid description">
-        </div>
-    </div>
+				<div class="modal-content new">
+					<div class="modal-header new" style="padding-bottom: 5px;">
+						<h5 class="modal-title" id="exampleModalLabel">Add new file</h5>
+						<a class="btn" data-bs-dismiss="modal" style="font-size: 22px">×</a>
+					</div>
 
-    <!-- info -->
+					<div class="modal-body new" style="padding-top: 5px;">
+						A project contains all project files and folders, including the revision history.
+						Already have a project repository elsewhere?
+						<a href="#">Import project</a>
+					</div>
 
-    <div id="info" class="col-sm-3">
-        <p>info progetto!</p>
-    </div>
+					<div class="modal-body new">
+
+						<form id="uploadForm" method="post">
+
+							<div class="row">
+								<div class="col-6">
+									<div class="mb-3">
+										<a href="#" style="text-decoration: none; font-size: 20px;"><%- name %></a>
+										<input class="form-control form-control-sm" id="myFiles" type="file" multiple>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-12">
+									<label class="form-label">Upload changes</label>
+								</div>
+								<div class="col-12">
+									<input type="text" class="form-control newp" placeholder="Add file via upload" name="title"></input>
+								</div>
+								<div class="col-12">
+									<textarea class="form newpd" placeholder="Add an optional extended descrtption" name="description"></textarea>
+								</div>
+							</div>
+
+							<hr>
+
+							<button type="submit" class="btn btn-success">Upload</button>
+
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<form action="#" method="post">
+
+			<div class="container-fluid" align="right">
+				<a class="btn" href="">Explore</a>
+				<a class="btn" data-bs-toggle="modal" data-bs-target="#new">Upload</a>
+				<button class="btn btn-success" type="submit" >Download</button>
+			</div>
+		</form>
+		<!-- Projects files-->
+		<form action="#" method="post">
+			<!-- current folder-->
+
+			<div class="container-fluid table">
+				<div> <a class="btn folder" href="">Current folder</a> </div>
+				<% var files %>
+				<% for (var items of files){ %>
+					<%var fileName = items.fileName%>
+					<%var ext = items.ext%>
+					<% if (ext == ""){%>
+						<div class="d-flex align-items-center file">
+								<input class="form-check-input" type="checkbox" id="gridCheck">
+								<img src="/img/svg/folder.svg" class="icon"><a class="btn" href=""> <%- fileName %></a>
+						</div>
+					<%}%>
+					else{
+						<div class="d-flex align-items-center file">
+							<input class="form-check-input" type="checkbox" id="gridCheck">
+							<img src="/img/svg/doc.svg" class="icon"><a class="btn" href=""><%- fileName %></a>
+						</div>
+					}
+				<%}%>
+			</div>
+		</form>
+
+		<!-- project description-->
+
+		<div class="container-fluid description">
+		</div>
+	</div>
+
+	<!-- info -->
+
+	<div id="info" class="col-sm-3">
+		<p>info progetto!</p>
+	</div>
 
 </div>
 
 <!-- footer -->
 
 <div id="footer" class="row " align="center">
-    <p style="margin: 0"><b>Powered by</b>&emsp;Andrea Spinelli, Marco Valenti, Raffaele Terracino</p>
+	<p style ="margin: 0"><b>Powered by</b>&emsp;Andrea Spinelli, Marco Valenti, Raffaele Terracino</p>
 </div>
 
 </body>
-
-<!-- script -->
-
+	
+<!-- script --> 
+	
 <script>
 	const form = document.getElementById('uploadForm')
-	const importForm = document.getElementById('importForm')
 
 	const sendFiles = async () => {
 		// Object 
@@ -513,43 +467,19 @@
 			console.log(key)
 			formData.append(myFiles.item(key).name, myFiles.item(key))
 		})
-
+		
 		const response = (await fetch('http://localhost:3000/project/upload/<%- name %>', {
 			method: 'POST',
 			body: formData
 		}))
-
-
-	}
-	const sendZip = async () => {
-		// Object 
-		const myFiles = document.getElementById('projectFiles').files
-
-		const formData = new FormData()
-
-		Object.keys(myFiles).forEach(key => {
-			console.log(key)
-			formData.append(myFiles.item(key).name, myFiles.item(key))
-		})
-
-		const response = (await fetch('http://localhost:3000/project/import/<%- name %>', {
-			method: 'POST',
-			body: formData
-		}))
-
-
+		
+		
 	}
 
 	form.addEventListener('submit', (e) => {
 		e.preventDefault()
 		sendFiles()
 	})
-    
-	importForm.addEventListener('submit', (e) => {
-		e.preventDefault()
-		sendZip()
-	})
-    
 </script>
-
+	
 </html>
